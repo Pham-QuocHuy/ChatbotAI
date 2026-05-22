@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mentor Pro - Tư vấn Sinh viên IT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-user-graduate"></i>
+                <span>AI Mentor IT</span>
+            </div>
+            <div class="sidebar-content">
+                <div class="tip-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Mẹo học tập</h4>
+                    <p>Hãy thử hỏi về lộ trình học React, AI hoặc cách sửa lỗi code cụ thể nhé!</p>
+                </div>
+                <div class="status-panel">
+                    <div class="status-item">
+                        <span class="label">Trạng thái:</span>
+                        <span class="value online">Sẵn sàng</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-container">
+            <header class="chat-header">
+                <div class="header-info">
+                    <h2>Hệ thống Tư vấn Sinh viên IT</h2>
+                    <p>Hỗ trợ học tập, đồ án và định hướng nghề nghiệp</p>
+                </div>
+                <div class="header-actions">
+                    <button id="clear-chat" title="Xóa hội thoại">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="message bot">
+                    <div class="avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="content">
+                        Chào em! Anh là AI Mentor IT của em đây. Em đang gặp khó khăn gì trong việc học tập hay cần định hướng gì không? Đừng ngần ngại chia sẻ nhé!
+                    </div>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typing-indicator">
+                <span></span><span></span><span></span>
+            </div>
+
+            <footer class="chat-input-area">
+                <!-- Preview ảnh trước khi gửi -->
+                <div id="image-preview-container" class="image-preview-container" style="display:none;">
+                    <div class="preview-wrapper">
+                        <img id="image-preview" src="" alt="Preview" />
+                        <button id="remove-image" title="Xóa ảnh"><i class="fas fa-times"></i></button>
+                    </div>
+                    <span id="image-name" class="image-name"></span>
+                </div>
+                <form id="chat-form">
+                    <!-- Input file ẩn -->
+                    <input type="file" id="image-input" accept="image/*" style="display:none;">
+                    <!-- Nút chọn ảnh -->
+                    <button type="button" id="upload-image-btn" title="Đính kèm ảnh">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <input type="text" id="user-input" placeholder="Nhập câu hỏi hoặc đính kèm ảnh..." autocomplete="off">
+                    <button type="submit" id="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+    <!-- PrismJS for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
