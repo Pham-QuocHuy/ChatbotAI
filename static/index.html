@@ -4,93 +4,282 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Mentor Pro - Tư vấn Sinh viên IT</title>
+    <meta name="description" content="Hệ thống tư vấn sinh viên IT thông minh, hỗ trợ học tập, đồ án và định hướng nghề nghiệp.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
 </head>
 <body>
-    <div class="app-container">
-        <aside class="sidebar">
-            <div class="logo">
-                <i class="fas fa-user-graduate"></i>
-                <span>AI Mentor IT</span>
-            </div>
-            <div class="sidebar-content">
-                <div class="tip-card">
-                    <i class="fas fa-lightbulb"></i>
-                    <h4>Mẹo học tập</h4>
-                    <p>Hãy thử hỏi về lộ trình học React, AI hoặc cách sửa lỗi code cụ thể nhé!</p>
-                </div>
-                <div class="status-panel">
-                    <div class="status-item">
-                        <span class="label">Trạng thái:</span>
-                        <span class="value online">Sẵn sàng</span>
-                    </div>
-                </div>
-            </div>
-        </aside>
 
-        <main class="chat-container">
-            <header class="chat-header">
-                <div class="header-info">
-                    <h2>Hệ thống Tư vấn Sinh viên IT</h2>
-                    <p>Hỗ trợ học tập, đồ án và định hướng nghề nghiệp</p>
-                </div>
-                <div class="header-actions">
-                    <button id="clear-chat" title="Xóa hội thoại">
-                        <i class="fas fa-trash-alt"></i>
+<!-- ══════════════════════════════════════════════════════════
+     AUTH MODAL
+══════════════════════════════════════════════════════════ -->
+<div id="auth-overlay" class="auth-overlay" style="display:none;">
+    <div class="auth-modal" id="auth-modal">
+        <!-- Tab switcher -->
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">
+                <i class="fas fa-sign-in-alt"></i> Đăng nhập
+            </button>
+            <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">
+                <i class="fas fa-user-plus"></i> Đăng ký
+            </button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="form-login" class="auth-form">
+            <div class="auth-header">
+                <div class="auth-icon"><i class="fas fa-robot"></i></div>
+                <h2>Chào mừng trở lại!</h2>
+                <p>Đăng nhập để lưu lịch sử chat của bạn</p>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Tên đăng nhập</label>
+                <input type="text" id="login-username" placeholder="Nhập tên đăng nhập..." autocomplete="username">
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-lock"></i> Mật khẩu</label>
+                <div class="input-password-wrapper">
+                    <input type="password" id="login-password" placeholder="Nhập mật khẩu..." autocomplete="current-password">
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('login-password', this)">
+                        <i class="fas fa-eye"></i>
                     </button>
                 </div>
-            </header>
+            </div>
+            <div id="login-error" class="auth-error" style="display:none;"></div>
+            <button class="auth-btn" id="login-btn" onclick="handleLogin()">
+                <span class="btn-text">Đăng nhập</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="auth-close-btn" onclick="closeAuthModal()">Tiếp tục không đăng nhập</button>
+        </div>
 
-            <div id="chat-messages" class="chat-messages">
-                <div class="message bot">
-                    <div class="avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="content">
-                        Chào em! Anh là AI Mentor IT của em đây. Em đang gặp khó khăn gì trong việc học tập hay cần định hướng gì không? Đừng ngần ngại chia sẻ nhé!
-                    </div>
-                </div>
+        <!-- Register Form — 2 bước -->
+        <div id="form-register" class="auth-form" style="display:none;">
+            <div class="auth-header">
+                <div class="auth-icon"><i class="fas fa-user-graduate"></i></div>
+                <h2>Tạo tài khoản mới</h2>
+                <p>Đăng ký để lưu toàn bộ lịch sử chat</p>
             </div>
 
-            <div class="typing-indicator" id="typing-indicator">
-                <span></span><span></span><span></span>
+            <!-- Bước 1: Nhập thông tin -->
+            <div id="reg-step-1">
+                <!-- Step indicator -->
+                <div class="otp-steps">
+                    <div class="otp-step active"><span>1</span> Thông tin</div>
+                    <div class="otp-step-line"></div>
+                    <div class="otp-step" id="step2-indicator"><span>2</span> Xác minh</div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Tên đăng nhập</label>
+                    <input type="text" id="reg-username" placeholder="Tối thiểu 3 ký tự..." autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Gmail</label>
+                    <input type="email" id="reg-email" placeholder="yourname@gmail.com" autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Mật khẩu</label>
+                    <div class="input-password-wrapper">
+                        <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự..." autocomplete="new-password">
+                        <button type="button" class="toggle-password" onclick="togglePasswordVisibility('reg-password', this)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="register-error" class="auth-error" style="display:none;"></div>
+                <button class="auth-btn" id="send-otp-btn" onclick="handleSendOtp()">
+                    <span class="btn-text">Gửi mã xác minh</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <button class="auth-close-btn" onclick="closeAuthModal()">Tiếp tục không đăng nhập</button>
             </div>
 
-            <footer class="chat-input-area">
-                <!-- Preview ảnh trước khi gửi -->
-                <div id="image-preview-container" class="image-preview-container" style="display:none;">
-                    <div class="preview-wrapper">
-                        <img id="image-preview" src="" alt="Preview" />
-                        <button id="remove-image" title="Xóa ảnh"><i class="fas fa-times"></i></button>
-                    </div>
-                    <span id="image-name" class="image-name"></span>
+            <!-- Bước 2: Nhập OTP -->
+            <div id="reg-step-2" style="display:none;">
+                <!-- Step indicator -->
+                <div class="otp-steps">
+                    <div class="otp-step done"><span><i class="fas fa-check"></i></span> Thông tin</div>
+                    <div class="otp-step-line active"></div>
+                    <div class="otp-step active"><span>2</span> Xác minh</div>
                 </div>
-                <form id="chat-form">
-                    <!-- Input file ẩn -->
-                    <input type="file" id="image-input" accept="image/*" style="display:none;">
-                    <!-- Nút chọn ảnh -->
-                    <button type="button" id="upload-image-btn" title="Đính kèm ảnh">
-                        <i class="fas fa-paperclip"></i>
-                    </button>
-                    <input type="text" id="user-input" placeholder="Nhập câu hỏi hoặc đính kèm ảnh..." autocomplete="off">
-                    <button type="submit" id="send-btn">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </footer>
-        </main>
+
+                <div class="otp-info-box">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <p>Mã xác minh đã gửi về<br><strong id="otp-email-display"></strong></p>
+                </div>
+
+                <!-- 6 ô OTP -->
+                <div class="otp-boxes" id="otp-boxes">
+                    <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                    <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                    <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                    <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                    <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                    <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                </div>
+
+                <!-- Countdown -->
+                <div class="otp-countdown">
+                    <i class="fas fa-clock"></i>
+                    Mã hết hạn sau <span id="otp-timer">10:00</span>
+                </div>
+
+                <div id="otp-error" class="auth-error" style="display:none;"></div>
+
+                <button class="auth-btn" id="register-btn" onclick="handleRegister()">
+                    <span class="btn-text">Hoàn tất đăng ký</span>
+                    <i class="fas fa-rocket"></i>
+                </button>
+
+                <button class="auth-close-btn" onclick="backToRegStep1()">
+                    <i class="fas fa-arrow-left"></i> Quay lại
+                </button>
+            </div>
+        </div>
     </div>
-    <!-- PrismJS for syntax highlighting -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
-    <script src="script.js"></script>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     MAIN APP
+══════════════════════════════════════════════════════════ -->
+<div class="app-container">
+
+    <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-user-graduate"></i>
+            <span>AI Mentor IT</span>
+        </div>
+
+        <!-- Nút Phiên mới -->
+        <button class="new-chat-btn" id="new-chat-btn">
+            <i class="fas fa-plus"></i>
+            <span>Phiên chat mới</span>
+        </button>
+
+        <!-- Danh sách sessions (chỉ hiện khi đăng nhập) -->
+        <div class="sessions-section" id="sessions-section" style="display:none;">
+            <div class="sessions-label">Lịch sử trò chuyện</div>
+            <div class="sessions-list" id="sessions-list">
+                <!-- Được render bằng JS -->
+            </div>
+        </div>
+
+        <!-- Khu vực không đăng nhập -->
+        <div class="guest-hint" id="guest-hint">
+            <i class="fas fa-cloud-slash"></i>
+            <p>Đăng nhập để lưu lịch sử chat và truy cập mọi lúc</p>
+            <button class="sidebar-login-btn" onclick="openAuthModal('login')">
+                <i class="fas fa-sign-in-alt"></i> Đăng nhập
+            </button>
+        </div>
+
+        <!-- Tips card -->
+        <div class="tip-card">
+            <i class="fas fa-lightbulb"></i>
+            <h4>Mẹo học tập</h4>
+            <p>Hãy thử hỏi về lộ trình học React, AI hoặc cách sửa lỗi code cụ thể nhé!</p>
+        </div>
+
+        <div class="status-panel">
+            <div class="status-item">
+                <span class="label">Trạng thái:</span>
+                <span class="value online">Sẵn sàng</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ── MAIN CHAT ─────────────────────────────────────────── -->
+    <main class="chat-container">
+        <header class="chat-header">
+            <div class="header-info">
+                <h2>Hệ thống Tư vấn Sinh viên IT</h2>
+                <p id="session-subtitle">Hỗ trợ học tập, đồ án và định hướng nghề nghiệp</p>
+            </div>
+            <div class="header-actions">
+                <!-- User Info (khi đăng nhập) -->
+                <div class="user-menu" id="user-menu" style="display:none;">
+                    <div class="user-avatar-btn" id="user-avatar-btn" onclick="toggleUserDropdown()">
+                        <div class="user-avatar" id="user-avatar-initial">U</div>
+                        <span id="header-username">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="user-dropdown" id="user-dropdown" style="display:none;">
+                        <div class="dropdown-info">
+                            <div class="dropdown-avatar" id="dropdown-avatar-initial">U</div>
+                            <div>
+                                <div class="dropdown-name" id="dropdown-username">Username</div>
+                                <div class="dropdown-email" id="dropdown-email">email@example.com</div>
+                            </div>
+                        </div>
+                        <hr class="dropdown-divider">
+                        <button class="dropdown-item logout-item" onclick="handleLogout()">
+                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Login button (khi chưa đăng nhập) -->
+                <button class="header-login-btn" id="header-login-btn" onclick="openAuthModal('login')">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Đăng nhập</span>
+                </button>
+
+                <button id="clear-chat" title="Xóa hội thoại">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <div id="chat-messages" class="chat-messages">
+            <div class="message bot">
+                <div class="avatar"><i class="fas fa-robot"></i></div>
+                <div class="content">
+                    Chào em! Anh là AI Mentor IT của em đây. Em đang gặp khó khăn gì trong việc học tập hay cần định hướng gì không? Đừng ngần ngại chia sẻ nhé! 🚀
+                </div>
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typing-indicator">
+            <span></span><span></span><span></span>
+        </div>
+
+        <footer class="chat-input-area">
+            <!-- Preview ảnh -->
+            <div id="image-preview-container" class="image-preview-container" style="display:none;">
+                <div class="preview-wrapper">
+                    <img id="image-preview" src="" alt="Preview" />
+                    <button id="remove-image" title="Xóa ảnh"><i class="fas fa-times"></i></button>
+                </div>
+                <span id="image-name" class="image-name"></span>
+            </div>
+            <form id="chat-form">
+                <input type="file" id="image-input" accept="image/*" style="display:none;">
+                <button type="button" id="upload-image-btn" title="Đính kèm ảnh">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <input type="text" id="user-input" placeholder="Nhập câu hỏi hoặc đính kèm ảnh..." autocomplete="off">
+                <button type="submit" id="send-btn" title="Gửi tin nhắn">
+                    <i class="fas fa-paper-plane" id="send-icon"></i>
+                    <i class="fas fa-stop" id="stop-icon" style="display:none;"></i>
+                </button>
+            </form>
+        </footer>
+    </main>
+</div>
+
+<!-- PrismJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
