@@ -7,6 +7,8 @@ ai_engine.py — LangGraph AI Workflow:
 import os
 import re
 import httpx
+import tempfile
+import shutil
 from typing import TypedDict, List
 
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
@@ -32,7 +34,17 @@ embeddings   = HuggingFaceEmbeddings(model_name="keepitreal/vietnamese-sbert")
 
 vector_store = None
 if os.path.exists(CHROMA_PATH):
-    vector_store = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
+    # Vì ChromaDB C++ backend (hnswlib) không đọc được đường dẫn Unicode tiếng Việt trên Windows,
+    # chúng ta copy dữ liệu sang thư mục tạm hệ thống để load.
+    temp_dir = os.path.join(tempfile.gettempdir(), "chroma_temp_run")
+    try:
+        if os.path.exists(temp_dir):
+            shutil.rmtree(temp_dir)
+        shutil.copytree(CHROMA_PATH, temp_dir)
+        vector_store = Chroma(persist_directory=temp_dir, embedding_function=embeddings)
+        print(f"✅ Đã tải ChromaDB từ {CHROMA_PATH} thông qua thư mục tạm {temp_dir}")
+    except Exception as e:
+        print(f"❌ Lỗi khi tải ChromaDB index: {e}")
 else:
     print(f"⚠️ Chưa có ChromaDB tại {CHROMA_PATH}. Tính năng RAG tắt.")
 
@@ -63,6 +75,7 @@ class State(TypedDict):
     router_decision: str
     history:         List[BaseMessage]
     response:        str
+    rag_target_folder: str
 
 
 # ---------------------------------------------------------------------------
@@ -130,11 +143,47 @@ Respond with exactly one word: 'internal' or 'external'."""),
     return {"router_decision": decision}
 
 
+def analyze_rag_target(state: State) -> State:
+    """Xác định thư mục dữ liệu phù hợp nhất với câu hỏi."""
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", """You are a smart router. Based on the user's query, determine which folder of internal documents is most relevant.
+Options:
+- chuong_trinh_dao_tao: questions about curriculum, subjects, credits, training programs.
+- de_cuong_hoc_phan: questions about course syllabus, exams, grading of specific subjects.
+- hoat_dong_ngoai_khoa: clubs, extracurriculars, volunteer work.
+- nghien_cuu_va_do_an: scientific research, graduation projects, thesis.
+- quy_che_dao_tao: rules, regulations, tuition fees, scholarships, academic warnings, points.
+- thong_tin_nganh_cntt: IT news, department info, teachers, staff.
+- all: if it doesn't clearly fit one or covers multiple.
+
+Respond with exactly ONE option from the list above."""),
+        ("human", "{query}"),
+    ])
+    res = get_content((prompt | llm).invoke({"query": state["query"]})).strip().lower()
+    valid_folders = ["chuong_trinh_dao_tao", "de_cuong_hoc_phan", "hoat_dong_ngoai_khoa", 
+                     "nghien_cuu_va_do_an", "quy_che_dao_tao", "thong_tin_nganh_cntt"]
+    
+    target = "all"
+    for folder in valid_folders:
+        if folder in res:
+            target = folder
+            break
+            
+    print(f"🎯 RAG Target Folder: {target}")
+    return {"rag_target_folder": target}
+
+
 def retrieve_rag(state: State) -> State:
     """Tìm kiếm trong ChromaDB nội bộ."""
     if vector_store is None:
         return {"rag_result": ""}
-    docs = vector_store.as_retriever(search_kwargs={"k": 3}).invoke(state["query"])
+    
+    target_folder = state.get("rag_target_folder", "all")
+    search_kwargs = {"k": 5}
+    if target_folder != "all":
+        search_kwargs["filter"] = {"category": target_folder}
+        
+    docs = vector_store.as_retriever(search_kwargs=search_kwargs).invoke(state["query"])
     if not docs:
         return {"rag_result": ""}
     context = "\n\n".join(
@@ -142,7 +191,7 @@ def retrieve_rag(state: State) -> State:
         f"(Phân loại: {d.metadata.get('category', 'Chung')})\nNội dung: {d.page_content}"
         for d in docs
     )
-    print(f"📚 RAG: {len(docs)} đoạn phù hợp")
+    print(f"📚 RAG: {len(docs)} đoạn phù hợp (Filter: {target_folder})")
     return {"rag_result": context}
 
 
@@ -256,6 +305,7 @@ _workflow = StateGraph(State)
 _workflow.add_node("categorize",       categorize)
 _workflow.add_node("analyze_sentiment", analyze_sentiment)
 _workflow.add_node("route_query",      route_query)
+_workflow.add_node("analyze_rag_target", analyze_rag_target)
 _workflow.add_node("retrieve_rag",     retrieve_rag)
 _workflow.add_node("web_search",       web_search_node)
 _workflow.add_node("generate_response", generate_response)
@@ -264,7 +314,8 @@ _workflow.set_entry_point("categorize")
 _workflow.add_edge("categorize",        "analyze_sentiment")
 _workflow.add_edge("analyze_sentiment", "route_query")
 _workflow.add_conditional_edges("route_query",  _route_after_decision,
-                                {"retrieve_rag": "retrieve_rag", "web_search": "web_search"})
+                                {"retrieve_rag": "analyze_rag_target", "web_search": "web_search"})
+_workflow.add_edge("analyze_rag_target", "retrieve_rag")
 _workflow.add_conditional_edges("retrieve_rag", _route_after_rag,
                                 {"web_search": "web_search", "generate_response": "generate_response"})
 _workflow.add_edge("web_search",        "generate_response")
