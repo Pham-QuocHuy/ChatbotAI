@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Kiểm Thử Tích Hợp Chatbot Widget</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        h1 {
+            color: #0f172a;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+        p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .btn {
+            display: inline-block;
+            background: #3a7bd5;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #2b60b3;
+        }
+        .demo-box {
+            margin-top: 30px;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Website của bạn (Trang mô phỏng)</h1>
+        <p>Đây là trang HTML mô phỏng website chính đã có của bạn. Dòng script của chatbot đã được nhúng vào cuối trang web này.</p>
+        <p>Bạn sẽ thấy <strong>Bong bóng chat hình tròn màu xanh</strong> ở góc dưới bên phải màn hình. Hãy nhấp vào nó để mở khung chat tư vấn sinh viên!</p>
+        <a href="#" class="btn">Tìm hiểu thêm</a>
+        
+        <div class="demo-box">
+            Mã nhúng được dùng: <code>&lt;script src="/widget.js"&gt;&lt;/script&gt;</code>
+        </div>
+    </div>
+
+    <!-- Nhúng script widget chatbot để test cục bộ -->
+    <script src="/widget.js"></script>
+
+</body>
+</html>

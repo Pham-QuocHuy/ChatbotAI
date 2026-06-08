@@ -193,6 +193,16 @@
         </div>
     </aside>
 
+    <!-- Nút toggle sidebar — fixed, luôn hiện thị -->
+    <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" onclick="toggleSidebar()" title="Ẩn/hiện thanh bên">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Overlay backdrop (mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
     <!-- ── MAIN CHAT ─────────────────────────────────────────── -->
     <main class="chat-container">
         <header class="chat-header">

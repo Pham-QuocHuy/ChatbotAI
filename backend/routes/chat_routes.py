@@ -51,6 +51,54 @@ async def _analyze_image(image_bytes: bytes, mime_type: str, prompt: str) -> str
 
 
 # ---------------------------------------------------------------------------
+# Helper: Sinh câu trả lời cho chat ảnh (ưu tiên ảnh, RAG bổ sung)
+# ---------------------------------------------------------------------------
+async def _generate_image_response(
+    vision_result: str,
+    rag_context: str,
+    user_prompt: str,
+    history: list,
+) -> str:
+    """
+    Tổng hợp câu trả lời khi có ảnh:
+      - Ưu tiên tuyệt đối nội dung trích xuất từ ảnh
+      - RAG / tài liệu chỉ dùng để bổ sung / xác nhận
+      - Không qua LangGraph
+    """
+    from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+    rag_section = (
+        f"\n\nTài liệu nội bộ tham khảo (chỉ dùng để bổ sung):\n{rag_context}"
+        if rag_context else
+        "\n\n(Không có tài liệu nội bộ liên quan — hãy trả lời hoàn toàn dựa vào ảnh và kiến thức chung.)"
+    )
+
+    prompt_template = ChatPromptTemplate.from_messages([
+        ("system", SYSTEM_PROMPT + f"""
+CHỈ THỊ XỬ LÝ ẢNH — ĐỌC KỸ:
+1. ƯU TIÊN TUYỆT ĐỐI nội dung được trích xuất từ ảnh để trả lời câu hỏi.
+2. Nếu ảnh đã có đủ thông tin → trả lời thẳng từ ảnh, không phụ thuộc tài liệu.
+3. Tài liệu nội bộ CHỈ dùng để BỔ SUNG hoặc XÁC NHẬN thông tin trong ảnh.
+4. Nếu thông tin trong ảnh KHÁC với tài liệu → nêu rõ cả hai, khuyên sinh viên kiểm tra cổng thông tin chính thức.
+5. Nếu ảnh bị mờ hoặc không đủ thông tin → nói rõ và dùng tài liệu bổ sung.
+6. Tuyệt đối KHÔNG bỏ qua hoặc mâu thuẫn với dữ liệu rõ ràng trong ảnh.
+
+--- Nội dung trích xuất từ ảnh ---
+{vision_result}
+{rag_section}
+"""),
+        MessagesPlaceholder(variable_name="history"),
+        ("human", "{query}"),
+    ])
+
+    res = get_content(await (prompt_template | llm).ainvoke({
+        "query": user_prompt,
+        "history": history,
+    }))
+    return res
+
+
+# ---------------------------------------------------------------------------
 # Helper: Lưu tin nhắn và cập nhật session (chỉ khi đã đăng nhập)
 # ---------------------------------------------------------------------------
 def _persist_chat(session_id: str, user_id: int, user_msg: str, bot_msg: str) -> None:
@@ -132,16 +180,27 @@ async def chat_image(
     full_prompt = f"[Người dùng gửi kèm một ảnh]\nCâu hỏi: {prompt}"
 
     try:
-        vision_result  = await _analyze_image(image_bytes, file.content_type, prompt)
-        combined_query = (
-            f"Dưới đây là nội dung được trích xuất từ ảnh của sinh viên:\n\n"
-            f"{vision_result}\n\nDựa vào đó, hãy trả lời câu hỏi: {prompt}"
+        # Bước 1: Vision AI đọc ảnh (ưu tiên cao nhất)
+        print(f"🖼️  Vision: đang phân tích ảnh...")
+        vision_result = await _analyze_image(image_bytes, file.content_type, prompt)
+        print(f"🖼️  Vision result ({len(vision_result)} chars): {vision_result[:120]}...")
+
+        # Bước 2: RAG nhanh với câu hỏi GỐC (không phải combined) — chỉ để bổ sung
+        print(f"📎 RAG bổ sung cho ảnh: tìm theo câu hỏi gốc '{prompt[:60]}...'")
+        rag_context = await quick_rag_search(prompt)
+        if rag_context:
+            print(f"📎 RAG bổ sung: {len(rag_context)} chars")
+        else:
+            print(f"📎 RAG bổ sung: không tìm thấy tài liệu liên quan")
+
+        # Bước 3: Tổng hợp — ưu tiên ảnh, RAG chỉ bổ sung (bypass LangGraph)
+        response = await _generate_image_response(
+            vision_result=vision_result,
+            rag_context=rag_context,
+            user_prompt=prompt,
+            history=history,
         )
-        config  = {"configurable": {"thread_id": f"{session_id}_img"}}
-        results = await bot_app.ainvoke(
-            {"query": combined_query, "history": history},
-            config=config
-        )
+
     except asyncio.CancelledError:
         return {"response": "", "vision_extract": "", "category": "", "sentiment": ""}
     except Exception as e:
@@ -149,13 +208,13 @@ async def chat_image(
         raise HTTPException(500, str(e))
 
     if is_logged_in:
-        _persist_chat(session_id, current_user["id"], full_prompt, results["response"])
+        _persist_chat(session_id, current_user["id"], full_prompt, response)
 
     return {
-        "response":       results["response"],
+        "response":       response,
         "vision_extract": vision_result,
-        "category":       results.get("category", ""),
-        "sentiment":      results.get("sentiment", ""),
+        "category":       "Vision",
+        "sentiment":      "Neutral",
     }
 
 

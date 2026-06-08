@@ -6,6 +6,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Kiểm tra chế độ nhúng (Embed Mode)
+    const urlParams = new URLSearchParams(window.location.search);
+    const isEmbedMode = urlParams.get('embed') === 'true';
+    if (isEmbedMode) {
+        document.body.classList.add('embed-mode');
+    }
+
     // ── DOM References ──────────────────────────────────────────
     const chatForm              = document.getElementById('chat-form');
     const userInput             = document.getElementById('user-input');
@@ -456,6 +463,9 @@ document.addEventListener('DOMContentLoaded', () => {
         div.innerHTML = `
             <i class="fas fa-comment-dots session-icon"></i>
             <span class="session-title" title="${escapeHtml(session.title)}">${escapeHtml(session.title)}</span>
+            <button class="session-rename" title="Đổi tên" onclick="renameSessionHandler(event, '${session.session_id}')">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
             <button class="session-delete" title="Xóa phiên" onclick="deleteSessionHandler(event, '${session.session_id}')">
                 <i class="fas fa-trash-alt"></i>
             </button>
@@ -463,7 +473,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         div.addEventListener('click', (e) => {
             if (e.target.closest('.session-delete')) return;
+            if (e.target.closest('.session-rename')) return;
+            if (e.target.closest('.session-rename-input')) return;
             switchSession(session.session_id, session.title);
+        });
+
+        // Double-click trực tiếp vào tiêu đề để đổi tên
+        div.addEventListener('dblclick', (e) => {
+            if (e.target.closest('.session-title')) {
+                renameSessionHandler(e, session.session_id);
+            }
         });
 
         return div;
@@ -551,6 +570,90 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionSubtitle.textContent = newTitle;
         }
     }
+
+    // ════════════════════════════════════════════════════════════
+    // RENAME SESSION — Inline edit
+    // ════════════════════════════════════════════════════════════
+    window.renameSessionHandler = function(e, sessionId) {
+        e.stopPropagation();
+        const item = sessionsList.querySelector(`[data-session-id="${sessionId}"]`);
+        if (!item) return;
+
+        // Nếu đang có input rồi thì bỏ qua
+        if (item.querySelector('.session-rename-input')) return;
+
+        const titleEl  = item.querySelector('.session-title');
+        const renameBtn = item.querySelector('.session-rename');
+        const deleteBtn = item.querySelector('.session-delete');
+        const oldTitle  = titleEl ? titleEl.textContent : '';
+
+        // Ẩn title và các nút, hiện input
+        if (titleEl)   titleEl.style.display   = 'none';
+        if (renameBtn) renameBtn.style.display  = 'none';
+        if (deleteBtn) deleteBtn.style.display  = 'none';
+
+        const input = document.createElement('input');
+        input.type  = 'text';
+        input.value = oldTitle;
+        input.className = 'session-rename-input';
+        input.maxLength = 80;
+
+        const confirmBtn = document.createElement('button');
+        confirmBtn.className = 'session-confirm-rename';
+        confirmBtn.title = 'Lưu';
+        confirmBtn.innerHTML = '<i class="fas fa-check"></i>';
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.className = 'session-cancel-rename';
+        cancelBtn.title = 'Hủy';
+        cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
+
+        item.appendChild(input);
+        item.appendChild(confirmBtn);
+        item.appendChild(cancelBtn);
+        input.focus();
+        input.select();
+
+        async function doRename() {
+            const newTitle = input.value.trim();
+            if (!newTitle || newTitle === oldTitle) {
+                cancelRename();
+                return;
+            }
+            try {
+                const res = await fetch(`/sessions/${sessionId}`, {
+                    method: 'PATCH',
+                    headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title: newTitle })
+                });
+                if (!res.ok) { cancelRename(); return; }
+                updateSessionTitleInUI(sessionId, newTitle);
+                // Cập nhật dataset title cho double-click lần sau
+                cancelRename(newTitle);
+            } catch (err) {
+                console.error('renameSession error:', err);
+                cancelRename();
+            }
+        }
+
+        function cancelRename(savedTitle) {
+            input.remove();
+            confirmBtn.remove();
+            cancelBtn.remove();
+            if (titleEl)   { titleEl.style.display   = ''; titleEl.textContent = savedTitle || oldTitle; titleEl.title = savedTitle || oldTitle; }
+            if (renameBtn) renameBtn.style.display  = '';
+            if (deleteBtn) deleteBtn.style.display  = '';
+        }
+
+        confirmBtn.addEventListener('click', (ev) => { ev.stopPropagation(); doRename(); });
+        cancelBtn.addEventListener ('click', (ev) => { ev.stopPropagation(); cancelRename(); });
+        input.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter')  { ev.preventDefault(); doRename(); }
+            if (ev.key === 'Escape') { ev.preventDefault(); cancelRename(); }
+        });
+        // blur → tự động lưu
+        input.addEventListener('blur', () => setTimeout(doRename, 150));
+    };
 
     newChatBtn.addEventListener('click', async () => {
         if (!authToken) {
@@ -911,3 +1014,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
     init();
 });
+
+// ════════════════════════════════════════════════════════════
+// SIDEBAR TOGGLE  (global — gọi từ onclick trong HTML)
+// ════════════════════════════════════════════════════════════
+(function () {
+    const STORAGE_KEY = 'sidebar_collapsed';
+
+    function getSidebar()    { return document.querySelector('.sidebar'); }
+    function getToggleBtn()  { return document.getElementById('sidebar-toggle-btn'); }
+    function getOverlay()    { return document.getElementById('sidebar-overlay'); }
+
+    function applySidebarState(collapsed, animate) {
+        const sidebar   = getSidebar();
+        const toggleBtn = getToggleBtn();
+        const overlay   = getOverlay();
+        if (!sidebar || !toggleBtn) return;
+
+        if (!animate) {
+            sidebar.style.transition = 'none';
+            requestAnimationFrame(() => { sidebar.style.transition = ''; });
+        }
+
+        if (collapsed) {
+            sidebar.classList.add('collapsed');
+            toggleBtn.classList.add('sidebar-hidden');
+            toggleBtn.title = 'Hiện thanh bên';
+            if (overlay) overlay.classList.remove('active');
+        } else {
+            sidebar.classList.remove('collapsed');
+            toggleBtn.classList.remove('sidebar-hidden');
+            toggleBtn.title = 'Ẩn thanh bên';
+            if (overlay) overlay.classList.add('active');
+        }
+    }
+
+    function isMobile() { return window.innerWidth <= 768; }
+
+    window.toggleSidebar = function () {
+        const sidebar = getSidebar();
+        if (!sidebar) return;
+        const willCollapse = !sidebar.classList.contains('collapsed');
+        applySidebarState(willCollapse, true);
+        // Chỉ lưu localStorage trên desktop
+        if (!isMobile()) {
+            localStorage.setItem(STORAGE_KEY, willCollapse ? '1' : '0');
+        }
+    };
+
+    // Khôi phục trạng thái khi tải trang
+    document.addEventListener('DOMContentLoaded', () => {
+        if (isMobile()) {
+            // Mobile: mặc định đóng sidebar
+            applySidebarState(true, false);
+        } else {
+            // Desktop: khôi phục từ localStorage
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved === '1') {
+                applySidebarState(true, false);
+            }
+        }
+    });
+
+    // Khi resize: cập nhật lại trạng thái phù hợp
+    window.addEventListener('resize', () => {
+        const overlay = getOverlay();
+        if (!isMobile() && overlay) {
+            overlay.classList.remove('active');
+        }
+    });
+
+    // Phím tắt Ctrl+B (như VS Code)
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+            e.preventDefault();
+            window.toggleSidebar();
+        }
+    });
+})();
+

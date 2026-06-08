@@ -1,0 +1,863 @@
+TRƯỜNG ĐẠI HỌC TÂY NGUYÊNKHOA KHOA HỌC TỰ NHIÊN VÀ CÔNG NGHỆCHUYÊN ĐỀ TỐT NGHIỆPĐỀ TÀI: XÂY DỰNG CHATBOT AI DÀNH CHO SINH VIÊN NGÀNH CÔNG NGHỆ THÔNG TINSinh viên          : Phạm Quốc HuyChuyên ngành : Công nghệ thông tinKhóa học          : 2022 - 2026Đắk Lắk, tháng 06 năm 2026TRƯỜNG ĐẠI HỌC TÂY NGUYÊNKHOA KHOA HỌC TỰ NHIÊN VÀ CÔNG NGHỆCHUYÊN ĐỀ TỐT NGHIỆPĐỀ TÀI: XÂY DỰNG CHATBOT AI DÀNH CHO SINH VIÊN NGÀNH CÔNG NGHỆ THÔNG TINSinh viên          : Phạm Quốc HuyChuyên ngành : Công nghệ thông tinKhóa học          : 2022 - 2026Đắk Lắk, tháng 06 năm 2026
+TRƯỜNG ĐẠI HỌC TÂY NGUYÊN
+KHOA KHOA HỌC TỰ NHIÊN VÀ CÔNG NGHỆ
+CHUYÊN ĐỀ TỐT NGHIỆPĐỀ TÀI: XÂY DỰNG CHATBOT AI DÀNH CHO SINH VIÊN NGÀNH CÔNG NGHỆ THÔNG TIN
+Sinh viên          : Phạm Quốc Huy
+Chuyên ngành : Công nghệ thông tin
+Khóa học          : 2022 - 2026
+Đắk Lắk, tháng 06 năm 2026
+TRƯỜNG ĐẠI HỌC TÂY NGUYÊN
+KHOA KHOA HỌC TỰ NHIÊN VÀ CÔNG NGHỆ
+CHUYÊN ĐỀ TỐT NGHIỆPĐỀ TÀI: XÂY DỰNG CHATBOT AI DÀNH CHO SINH VIÊN NGÀNH CÔNG NGHỆ THÔNG TIN
+Sinh viên          : Phạm Quốc Huy
+Chuyên ngành : Công nghệ thông tin
+Khóa học          : 2022 - 2026
+Đắk Lắk, tháng 06 năm 2026
+TRƯỜNG ĐẠI HỌC TÂY NGUYÊNKHOA KHOA HỌC TỰ NHIÊN VÀ CÔNG NGHỆCHUYÊN ĐỀ TỐT NGHIỆPĐỀ TÀI: XÂY DỰNG CHATBOT AI DÀNH CHO SINH VIÊN NGÀNH CÔNG NGHỆ THÔNG TINSinh viên: Phạm Quốc Huy                                  Chuyên ngành:  Công nghệ thông tinGiảng viên hướng dẫnThS. Nguyễn Thị NhưĐắk Lắk, tháng 06 năm 2026TRƯỜNG ĐẠI HỌC TÂY NGUYÊNKHOA KHOA HỌC TỰ NHIÊN VÀ CÔNG NGHỆCHUYÊN ĐỀ TỐT NGHIỆPĐỀ TÀI: XÂY DỰNG CHATBOT AI DÀNH CHO SINH VIÊN NGÀNH CÔNG NGHỆ THÔNG TINSinh viên: Phạm Quốc Huy                                  Chuyên ngành:  Công nghệ thông tinGiảng viên hướng dẫnThS. Nguyễn Thị NhưĐắk Lắk, tháng 06 năm 2026
+TRƯỜNG ĐẠI HỌC TÂY NGUYÊN
+KHOA KHOA HỌC TỰ NHIÊN VÀ CÔNG NGHỆ
+CHUYÊN ĐỀ TỐT NGHIỆPĐỀ TÀI: XÂY DỰNG CHATBOT AI DÀNH CHO SINH VIÊN NGÀNH CÔNG NGHỆ THÔNG TIN
+Sinh viên: Phạm Quốc Huy
+                                  Chuyên ngành:  Công nghệ thông tin
+Giảng viên hướng dẫn
+ThS. Nguyễn Thị Như
+Đắk Lắk, tháng 06 năm 2026
+TRƯỜNG ĐẠI HỌC TÂY NGUYÊN
+KHOA KHOA HỌC TỰ NHIÊN VÀ CÔNG NGHỆ
+CHUYÊN ĐỀ TỐT NGHIỆPĐỀ TÀI: XÂY DỰNG CHATBOT AI DÀNH CHO SINH VIÊN NGÀNH CÔNG NGHỆ THÔNG TIN
+Sinh viên: Phạm Quốc Huy
+                                  Chuyên ngành:  Công nghệ thông tin
+Giảng viên hướng dẫn
+ThS. Nguyễn Thị Như
+Đắk Lắk, tháng 06 năm 2026
+LỜI CẢM ƠN
+Trong suốt quá trình học tập và hoàn thành báo cáo chuyên đề tốt nghiệp với đề tài "Xây dựng Chatbot AI dành cho sinh viên ngành Công nghệ thông tin", em đã nhận được sự quan tâm, giúp đỡ và động viên rất lớn từ các thầy cô, gia đình và bạn bè.
+Trước tiên, em xin gửi lời cảm ơn chân thành đến Ban Giám hiệu nhà trường cùng quý thầy cô Ngành Công nghệ thông tin đã tận tình giảng dạy, truyền đạt những kiến thức quý báu cho em trong suốt thời gian học tập tại trường. 
+Đặc biệt, em xin bày tỏ lòng biết ơn sâu sắc nhất đến Ths. Nguyễn Thị Như. Cô đã là người trực tiếp hướng dẫn, định hướng nghiên cứu và dành nhiều thời gian quý báu để tận tình chỉ bảo, sửa chữa những thiếu sót cho em trong suốt quá trình triển khai ý tưởng và hoàn thiện báo cáo. Nhờ có sự tâm huyết và những lời khuyên chuyên môn sâu sắc của cô, hệ thống Chatbot mới có thể hoàn thiện và đi vào thực tiễn một cách hiệu quả nhất.
+Mặc dù đã có nhiều cố gắng trong việc tìm hiểu tài liệu, lập trình và xây dựng hệ thống, nhưng do thời gian thực hiện có hạn cũng như kinh nghiệm thực tế của bản thân chưa nhiều, báo cáo chắc chắn sẽ không tránh khỏi những thiếu sót nhất định. Em rất mong nhận được sự quan tâm, đánh giá và những ý kiến đóng góp quý báu từ các thầy cô trong Hội đồng đánh giá để đề tài được hoàn thiện hơn, đồng thời giúp em rút ra được những bài học kinh nghiệm thiết thực cho con đường phát triển sự nghiệp sau này.
+Một lần nữa, em xin kính chúc quý thầy cô luôn dồi dào sức khỏe, hạnh phúc và gặt hái được nhiều thành công trong sự nghiệp trồng người.
+Em xin chân thành cảm ơn!
+MỤC LỤC
+LỜI CẢM ƠNI
+MỤC LỤCII
+DANH MỤC HÌNH ẢNHIV
+DANH MỤC BẢNG BIỂUV
+DANH MỤC TỪ VIẾT TẮTVI
+CHƯƠNG 1: TỔNG QUAN VỀ ĐỀ TÀI1
+1.1. Lý do chọn đề tài.1
+1.2. Mục tiêu nghiên cứu.2
+1.2.1. Mục tiêu tổng quát.2
+1.2.2. Mục tiêu cụ thể.3
+1.3. Đối tượng và phạm vi nghiên cứu.4
+1.3.1. Đối tượng nghiên cứu.4
+1.3.2. Phạm vi.4
+CHƯƠNG 2: CƠ SỞ LÝ THUYẾT VÀ CÔNG NGHỆ SỬ DỤNG6
+2.1. Tổng quan về trí tuệ nhân tạo (AI) và xử lý ngôn ngữ tự nhiên (NLP).6
+2.1.1. Khái niệm về trí tuệ nhân tạo.6
+2.1.2. Các nhánh chính của AI.6
+2.1.3. Khái niệm về xử lý ngôn ngữ tự nhiên (NLP).6
+2.1.4. Vai trò của NLP trong hệ thống Chatbot.7
+2.1.5. Xu hướng phát triển AI và NLP hiện nay.7
+2.2. Tổng quan về Chatbot AI.7
+2.2.1. Khái niệm về Chatbot AI.7
+2.2.2. Lịch sử phát triển của Chatbot.7
+2.2.3. Phân loại Chatbot AI.8
+2.2.4. Thành phần chính của hệ thống Chatbot AI.8
+2.2.5. Ứng dụng của Chatbot AI.9
+2.2.6. Vai trò của Chatbot AI trong chuyển đổi số.9
+2.3. Các công nghệ và công cụ đề xuất sử dụng.9
+2.3.1. Ngôn ngữ lập trình.9
+2.3.2. Công nghệ xử lý ngôn ngữ tự nhiên NLP.10
+2.3.3. Framework và nền tảng phát triển.10
+2.3.4. Cơ sở dữ liệu.11
+2.3.5. Công cụ xây dựng giao diện.11
+2.3.6. Công cụ triển khai và xử lý hệ thống.11
+2.3.7. Đề xuất mô hình công nghệ cho hệ thống.11
+CHƯƠNG 3: PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG13
+3.1. Quy trình phát triển hệ thống.13
+3.2. Phân tích yêu cầu hệ thống.15
+3.2.1. Yêu cầu chức năng.15
+3.2.2. Yêu cầu phi chức năng16
+3.3. Thiết kế kiến trúc hệ thống.16
+3.3.1. Mô hình kiến trúc tổng thể.17
+3.3.2. Quy trình hoạt động của hệ thống.17
+3.3.3. Thành phần hệ thống.17
+3.4. Phân tích hệ thống (UML).18
+3.4.1. UseCase Diagram.18
+3.4.2. Activity Diagram.19
+3.4.3. Sequence Diagram.20
+3.5. Thiết kế cơ sở dữ liệu.21
+CHƯƠNG 4: TRIỂN KHAI VÀ ĐÁNH GIÁ KẾT QUẢ23
+4.1. Môi trường phát triển.23
+4.1.1. Phần cứng.23
+4.1.2. Phần mềm và công nghệ sử dụng.23
+4.1.3. Môi trường triển khai.24
+4.2. Xây dựng phân hệ thu thập và chuẩn bị dữ liệu.24
+4.2.1. Thu thập dữ liệu.24
+4.2.2. Làm sạch và chuẩn hóa dữ liệu.25
+4.2.3. Chia nhỏ dữ liệu.25
+4.2.4. Tạo Embeddings và Vector Database.25
+4.3. Xây dựng phân hệ Backend và API.25
+4.3.1. Xây dựng Backend bằng FastAPI.26
+4.3.2. Thiết kế RESTful API.26
+4.3.3. Kết nối AI Service và triển khai kiến trúc Agentic RAG.26
+4.3.4. Lưu lịch sử hội thoại.27
+4.3.5. Triển khai cơ chế xác thực và bảo mật OTP.27
+4.4. Xây dựng giao diện người dùng.28
+4.4.1. Giao diện Chatbot.28
+4.4.2. Thiết kế Responsive.28
+4.5. Đánh giá và thử nghiệm.28
+4.5.1. Kiểm thử chức năng.28
+4.5.2. Đánh giá hiệu năng.28
+4.5.3. Đánh giá độ chính xác.28
+4.5.4. Hạn chế của hệ thống.28
+4.5.5. Kết quả đạt được.29
+CHƯƠNG 5: KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN30
+5.1. Kết quả đạt được.30
+5.2. Khuyết điểm và hạn chế.30
+5.3. Hướng phát triển tương lai.31
+TÀI LIỆU THAM KHẢO33
+PHỤ LỤC34
+PHỤ LỤC A: CẤU TRÚC THƯ MỤC CỦA DỰ ÁN34
+PHỤ LỤC B: DANH MỤC CÔNG NGHỆ VÀ THƯ VIỆN CHÍNH36
+PHỤ LỤC C: THIẾT KẾ CHI TIẾT CƠ SỞ DỮ LIỆU (SQLITE)38
+PHỤ LỤC D: TÀI LIỆU ĐẶC TẢ API ENDPOINTS43
+PHỤ LỤC E: CẤU HÌNH BIẾN MÔI TRƯỜNG (.env)45
+DANH MỤC HÌNH ẢNH
+Hình  1: Sơ đồ quy trình xây dựng và triển khai hệ thống Chatbot AI13
+Hình  3: Sơ đồ Use Case Diagram18
+Hình  4: Sơ đồ Activity20
+Hình  5: Sơ đồ luồng đăng nhập và gửi câu hỏi21
+Hình  6: Thiết kế Cơ sở dữ liệu22
+Hình  7: Sơ đồ quy trình tiền xử lý dữ liệu24
+Hình  8: Sơ đồ luồng LangGraph26
+DANH MỤC BẢNG BIỂU
+Bảng  1: Quy trình chi tiết thực hiện dự án Chatbot AI13
+Bảng  2: Các phần mềm và công nghệ được dùng23
+Bảng  3: Đánh giá hiệu năng28
+DANH MỤC TỪ VIẾT TẮT
+Từ viết tắt
+Từ đầy đủ
+Ý nghĩa
+AI 
+Artificial Intelligence
+Trí tuệ nhân tạo
+LLM
+Large Language Model
+Mô hình ngôn ngữ lớn
+RAG
+Retrieval-Augmented Generation
+Tạo tăng cường truy xuất
+SBERT
+Sentence-BERT
+Mô hình Sentence-Bert
+Embeddings
+Vector Embeddings
+Nhúng Vector
+IT
+Information Technology
+Công nghệ thông tin
+API
+Application Programming Interface
+Giao diện lập trình ứng dụng
+DB 
+Database
+Cơ sở dữ liệu
+ChromaDB
+Chroma Database
+Cơ sở dữ liệu vector Chroma
+SQLite
+Structured Query Language Lite
+Hệ quản trị cơ sở dữ liệu quan hệ nhỏ gọn
+HTML
+HyperText Markup Language
+Ngôn ngữ đánh dấu siêu văn bản
+CSS
+Cascading Style Sheets
+Bảng kiểu mẫu tuần tự
+JS
+JavaScript
+Ngôn ngữ kịch bản
+PDF 
+Portable Document Format
+Định dạng tài liệu di động
+MD 
+Markdown
+Ngôn ngữ đánh dấu văn bản đơn giản
+CHƯƠNG 1: TỔNG QUAN VỀ ĐỀ TÀI
+Lý do chọn đề tài.
+Trong bối cảnh kỷ nguyên số và cuộc cách mạng Công Nghiệp 4.0, trí tuệ nhân tạo (AI) nói chung và xử lý ngôn ngữ tự nhiên (NLP) nói riêng đang phát triển mạnh mẽ, mang lại những bước tiến đột phá trong ngành Giáo dục. Việc ứng dụng AI không chỉ là xu hướng tất yếu mà còn là giải pháp trọng tâm nhằm nâng cao chất lượng đào tạo và trải nghiệm học tập của sinh viên.
+Nhìn vào thực trạng hiện nay, sinh viên ngành công nghệ thông tin thường xuyên gặp khó khăn trong việc tìm kiếm và chọn lọc tài liệu học tập. Lượng kiến thức chuyên ngành rất lớn và liên tục cập nhật, trong khi các thông tin học vụ (quy chế, thông báo, hoạt động...) lại nằm rải rác trên nhiều trang khác nhau của cổng thông tin trường. Bên cạnh đó, đặc thù của sinh viên IT là thường xuyên làm việc ngoài giờ hành chính với các đồ án, bài tập thực hành lớn. Khi gặp bế tắc trong việc tìm hiểu công nghệ mới hoặc cần gợi ý hướng giải quyết khi gỡ lỗi (Debug) code, các bạn thiếu đi một nguồn hỗ trợ tức thời. Việc tra cứu thủ công qua hàng trăm trang tài liệu hay chờ đợi phản hồi từ giảng viên, phòng giáo vụ khiến sinh viên mất nhiều thời gian và làm gián đoạn học tập.
+Từ thực trạng đó, sự cần thiết của một trợ lý ảo (chatbot) trở nên rõ ràng hơn bao giờ hết. Một hệ thống chatbot thông minh có khả năng tự động hóa khâu tìm kiếm, hoạt động 24/7 sẽ giải quyết được vấn đề này. Và mang lại những lợi ích thiết thực: giải đáp nhanh chóng và tự động, hỗ trợ học tập chuyên ngành, tối ưu hóa thời gian.
+Hơn nữa, việc tự tay áp dụng những kiến thức đã học về thu thập dữ liệu tự động, xây dựng hệ thống Backend và tích hợp mô hình AI vào một bài toán thực tế là một cơ hội quý giá. Nó không chỉ giúp giải quyết “nỗi đau” thực tế của cộng đồng sinh viên mà còn khẳng định giá trị ứng dụng của công nghệ thông tin.
+Xuất phát từ những nhu cầu cấp thiết và động lực nêu trên, em đã quyết định lựa chọn đề tài: “Xây dựng chatbot AI dành cho sinh viên ngành Công nghệ thông tin” làm báo cáo chuyên đề tốt nghiệp. Đề tài hướng tới việc tạo ra một công cụ hỗ trợ đắc lực, tối ưu hóa quá trình tiếp nhận thông tin và góp phần xây dựng môi trường học tập hiện đại, chủ động.
+Ngoài ra, sự phát triển của các mô hình ngôn ngữ lớn (Large Language Model - LLM) kết hợp với kỹ thuật truy xuất tri thức tăng cường (Retrieval-Augmented Generation - RAG) đã mở ra khả năng xây dựng các hệ thống chatbot thông minh có thể hiểu ngữ cảnh, truy xuất dữ liệu nội bộ và phản hồi tự nhiên với độ chính xác cao. Việc ứng dụng các công nghệ hiện đại này vào môi trường giáo dục không chỉ góp phần nâng cao hiệu quả hỗ trợ sinh viên mà còn phù hợp với xu hướng chuyển đổi số trong các cơ sở đào tạo hiện nay.
+Mục tiêu nghiên cứu.
+Mục tiêu tổng quát.
+Mục tiêu chính của đề tài là nghiên cứu, thiết kế và xây dựng một hệ thống Chatbot AI đóng vai trò như một trợ lý ảo hỗ trợ sinh viên ngành Công nghệ thông tin trong quá trình học tập và tra cứu thông tin. Hệ thống được xây dựng nhằm giải quyết tình trạng dữ liệu học vụ phân tán, giúp sinh viên có thể tìm kiếm thông tin nhanh chóng và thuận tiện hơn mà không cần phải tra cứu thủ công từ nhiều nguồn khác nhau. 
+Chatbot sử dụng mô hình RAG kết hợp với xử lý ngôn ngữ tự nhiên (NLP) để truy xuất dữ liệu từ nguồn tài liệu nội bộ của nhà trường và đưa ra phản hồi phù hợp với ngữ cảnh hội thoại. Bên cạnh việc hỗ trợ tra cứu học vụ như môn học, tín chỉ, giảng viên hay quy chế đào tạo, hệ thống còn hướng đến việc hỗ trợ học tập cho sinh viên CNTT thông qua việc giải thích kiến thức lập trình, gợi ý tài liệu và hỗ trợ định hướng xử lý lỗi trong quá trình học tập.
+Ngoài phần giao diện tương tác với người dùng, đề tài cũng tập trung xây dựng hệ thống Backend ổn định và hiện đại nhằm đảm bảo tốc độ xử lý, khả năng tích hợp và tính ứng dụng thực tế. Qua đó, chatbot có thể trở thành một công cụ hỗ trợ hữu ích cho sinh viên trong môi trường học tập số hiện nay.
+Mục tiêu cụ thể.
+Xây dựng và chuẩn hóa cơ sở dữ liệu (Knowledge Base).
+Nhằm tạo ra một nguồn dữ liệu đầu vào chất lượng, phong phú cho mô hình AI. Đề tài tiến hành ứng dụng các kỹ thuật tự động hóa để trích xuất dữ liệu quy mô lớn từ cổng thông tin đào tạo của trường. Cụ thể, hệ thống tiến hành quét và thu thập dữ liệu từ các nguồn thông tin (các bài đăng thông báo, quy chế, chương trình đào tạo, tệp đính kèm,..). Toàn bộ dữ liệu sẽ được làm sạch, phân loại và lưu trữ có cấu trúc vào cơ sở dữ liệu (SQLite và ChromaDB), tạo thành một kho tri thức nội bộ vững chắc, giúp chatbot truy xuất thông tin một cách chính xác.
+Phát triển hệ thống Backend và API kết nối trung gian.
+Mục tiêu xây dựng một kiến trúc hệ thống máy chủ mạnh mẽ để làm cầu nối giao tiếp giữa cơ sở dữ liệu, mô hình AI và người dùng. Đề tài ứng dụng Framework FastAPI (Python) để thiết kế và phát triển hệ thống RESTful API. Việc này giúp đảm bảo tính bảo mật cao (trong các luồng xác thực , đăng nhập hệ thống), tối ưu hóa tốc độ xử lý truy vấn và tạo ra một nền tảng linh hoạt, dễ dàng mở rộng, tích hợp thêm các module chức năng mới trong tương lai.
+Thiết kế và phát triển giao diện người dùng tương tác.
+Nhằm mang lại trải nghiệm tốt nhất cho sinh viên, đề tài hướng tới việc xây dựng một giao diện trò chuyện trực quan, hiện đại và thân thiện. Giao diện phải đáp ứng được các tiêu chí sau: thao tác mượt, hiển thị rõ ràng nội dung phản hồi và tương thích tốt trên các nền tảng thiết bị khác nhau. Mục tiêu là tạo ra một không gian tương tác liền mạch theo thời gian thực, giúp sinh viên cảm thấy tự nhiên và thoải mái nhất khi trò chuyện cùng trợ lý ảo.
+Xây dựng cơ chế tìm kiếm ngữ nghĩa và truy xuất tri thức thông minh.
+Hệ thống ứng dụng kỹ thuật Embedding và Vector Database nhằm chuyển đổi dữ liệu văn bản thành vector ngữ nghĩa, giúp chatbot có khả năng tìm kiếm thông tin theo ngữ cảnh thay vì chỉ so khớp từ khóa thông thường. Điều này giúp nâng cao độ chính xác và tự nhiên trong phản hồi của hệ thống.
+Đối tượng và phạm vi nghiên cứu.
+Đối tượng nghiên cứu.
+Đối tượng nghiên cứu chính của đề tài là xoay quanh hai trụ cột công nghệ cốt lõi nhằm tạo nên một hệ thống trợ lý ảo thông minh và chính xác, gồm:
+Mô hình xử lý ngôn ngữ tự nhiên (NLP).
+Đề tài tập trung nghiên cứu cơ chế hoạt động của các mô hình và thuật toán phân tích ngữ nghĩa. Đây là bộ não của hệ thống, giúp chatbot có khả năng tiếp nhận, đọc hiểu và nhận diện chính xác ý định đằng sau những câu truy vấn tự nhiên của học sinh. Quá trình đi sâu vào cách mô hình bóc tách các từ khóa, hiểu được ngữ cảnh trong các đoạn hội thoại và đưa ra luồng phản hồi ngôn ngữ tự nhiên, mạch lạc đến người dùng.
+Kỹ thuật thu thập và xử lý dữ liệu.
+Để mô hình AI có thể trả lời chính xác, đề tài đi sâu vào tìm hiểu và ứng dụng các kỹ thuật tự động hóa để trích xuất dữ liệu web bằng các thư viện lập trình mạnh mẽ. Trọng tâm nghiên cứu nằm ở việc giải quyết bài toán cào dữ liệu quy mô lớn (lên đến hàng trăm trang, mỗi trang chứa nhiều bài đăng và tài liệu đính kèm như PDF) từ cổng thông tin đào tạo. Tiếp đó nghiên cứu về việc làm sạch văn bản, loại bỏ nhiễu, chuẩn hóa định dạng và tổ chức lưu trữ dữ liệu có cấu trúc vào cơ sở dữ liệu. Toàn bộ quy trình xử lý dữ liệu này đóng vai trò quyết định, là nền tảng để API truy xuất và cung cấp thông tin chuẩn xác cho mô hình.
+Đề tài nghiên cứu phương pháp kết hợp mô hình AI sinh ngôn ngữ với cơ chế truy xuất dữ liệu nội bộ nhằm tạo ra câu trả lời chính xác, hạn chế hiện tượng sinh nội dung sai lệch và nâng cao khả năng hỗ trợ người dùng theo ngữ cảnh thực tế.
+Phạm vi.
+Để đảm bảo tính khả thi, tập trung nguồn lực giải quyết hiệu quả vấn đề đặt ra và phù hợp với thời gian thực hiện chuyên đề,phạm vi nghiên cứu của đề tài được giới hạn cụ thể như sau:
+Về mặt nội dung và cơ sở tri thức.
+Kiến thức cơ sở ngành Công nghệ thông tin: Hệ thống tập trung hỗ trợ tra cứu và giải đáp các khái niệm, kiến thức, tài liệu tham khảo và cách xử lý các vấn đề thường gặp trong quá trình học tập. Đề tài hiện chỉ đang tập trung vào ngành CNTT.
+Thông tin học vụ và nội bộ: việc hỗ trợ tra cứu các thủ tục hành chính, quy chế và thông báo được khoanh vùng nghiêm ngặt dựa trên nguồn dữ liệu nội bộ của Khoa. Nguồn tri thức này được thu thập qua các cổng thông tin của trường. Chatbot sẽ đảm bảo độ chính xác cao nhất khi phản hồi các vấn đề nằm trong tệp dữ liệu đã được chuẩn hóa này.
+Về mặt kĩ thuật và công nghệ triển khai.
+Quá trình thu thập và tiền xử lý dữ liệu được giới hạn thực hiện bằng ngôn ngữ Python, áp dụng trên các trang web thông tin của trường. Dữ liệu sau khi làm sạch sẽ được lưu trữ trong SQLite và ChromaDB.
+Việc xây dựng luồng xử lý dữ liệu, quản lý hệ thống máy chủ và cung cấp các RESTful API giao tiếp được giới hạn phát triển trên nền tảng Framework FastAPI.
+CHƯƠNG 2: CƠ SỞ LÝ THUYẾT VÀ CÔNG NGHỆ SỬ DỤNG
+Tổng quan về trí tuệ nhân tạo (AI) và xử lý ngôn ngữ tự nhiên (NLP).
+Khái niệm về trí tuệ nhân tạo.
+Artificial Intelligence là ngành khoa học máy tính nghiên cứu và phát triển cá hệ thống có khả năng mô phỏng trí thông minh của con người. Nó giúp máy tính có thể thực hiện các nhiệm vụ như học tập, suy luận, nhận diện hình ảnh, xử lý ngôn ngữ và đưa ra quyết đinh.
+Hiện nay, AI được ứng dụng rộng rãi trong nhiều lĩnh vực như giáo dục, y tế, thương mại điện tử, tài chính , giao thông, chăm sóc khách hàng.... Một số ứng dụng phổ biến của AI như: chatbot hỗ trợ tư vấn tự động, hệ thống nhận diện khuôn mặt, trợ lý ảo thông minh, hệ thống gợi ý sản phẩm.
+AI hoạt động dựa trên dữ liệu và các thuật toán học máy, cho phép hệ thống cải thiện hiệu quả theo thời gian mà không cần lập trình thủ công cho từng tình huống cụ thể.
+Các nhánh chính của AI.
+AI bao gồm nhiều lĩnh vực nghiên cứu khác nhau, trong đó có một số nhánh quan trọng như: Machine Learning, Deep Learning, Computer Vision, Natural Language Processing. Trong đó, NLP là nền tảng quan trọng để xây dựng các hệ thống chatbot và trợ lý ảo.
+Khái niệm về xử lý ngôn ngữ tự nhiên (NLP).
+Natural Language Processing là lĩnh vực kết hợp AI, ngôn ngữ học và khoa học máy tính nhằm giúp máy tính hiểu, phân tích và phản hồi ngôn ngữ của con người.
+NLP cho phép hệ thống: phân tích câu hỏi của người dùng, nhận diện ý định và ngữ cảnh, trích xuất thông tin quan trọng, sinh câu trả lời phù hợp.
+Công nghệ NLP hiện nay được ứng dụng trong: chatbot tư vấn khách hàng, dịch ngôn ngữ tự động, nhận dạng giọng nói, tìm kiếm thông minh, phân tích cảm xúc người dùng. 
+Vai trò của NLP trong hệ thống Chatbot.
+Trong các hệ thống chatbot AI, NLP đóng vai trò giúp chatbot hiểu nội dung người dùng nhập vào thay vì chỉ so khớp từ khóa đơn giản.
+Quy trình xử lý NLP trong chatbot thường diễn ra như sau: tiếp nhận dữ liệu đầu vào từ người dùng → tiền xử lý văn bản → phân tích ý định người dùng → tìm kiếm thông tin phù hợp → sinh phản hồi tự động.
+Nhờ NLP chatbot có thể: trả lời theo ngữ cảnh của cuộc hội thoại, hỗ trợ giao tiếp tự nhiên hơn, tăng được độ chính xác trong phản hồi, giảm thời gian hỗ trợ thủ công
+Xu hướng phát triển AI và NLP hiện nay.
+Sự phát triển mạnh mẽ của AI và NLP đã tạo ra nhiều mô hình ngôn ngữ lớn có khả năng hiểu và tạo ra văn bản gần giống với con người. Các công nghệ hiện đại giúp chatbot ngày càng thông minh hơn, có thể hỗ trợ học tập, tư vấn tuyển sinh, chăm sóc khách hàng và hỗ trợ doanh nghiệp trong quá trình chuyển đổi số.
+Trong tương lai, AI và NLP được dự đoán sẽ tiếp tục đóng vai trò quan trọng trong việc tự động hóa và nâng cao trải nghiệm người dùng trên các nền tảng số.
+Tổng quan về Chatbot AI.
+Khái niệm về Chatbot AI.
+Chatbot là chương trình máy tính được thiết kế để mô phỏng cuộc hội thoại giữa con người và máy tính thông qua văn bản hoặc giọng nói. Chatbot AI sử dụng các công nghệ như Artificial Intelligence, Machine Learning và Natural Language Processing nhằm giúp hệ thống hiểu được nội dung từ người dùng và phản hồi một cách tự nhiên.
+Khác với chatbot truyền thống chỉ hoạt động dựa trên từ khóa hoặc kịch bản có sẵn, chatbot AI có khả năng học hỏi từ dữ liệu và xử lý ngữ cảnh hội thoại, từ đó nâng cao độ chính xác và trải nghiệm người dùng.
+Lịch sử phát triển của Chatbot.
+Chatbot xuất hiện từ khá sớm trong lĩnh vực khoa học máy tính. Một số cột mốc quan trọng:
+- Năm 1966, chatbot ELIZA được phát triển nhằm mô phỏng cuộc trò chuyện với con người thông qua các quy tắc đơn giản.
+- Giai đoạn sau đó xuất hiện nhiều chatbot dựa trên kịch bản cố định.
+- Hiện nay chatbot AI được tích hợp rộng rãi trên website, mạng xã hội, ứng dụng học tập và hệ thống chăm sóc khách hàng.
+Sự phát triển của các mô hình ngôn ngữ lớn đã giúp chatbot ngày càng thông minh, phản hồi tự nhiên và có thể hỗ trợ đa lĩnh vực.
+Phân loại Chatbot AI.
+Chatbot hiện nay chia ra thành các loại sau: chatbot kịch bản, chatbot AI thông minh.
+Chatbot theo kịch bản (Rule-based Chatbot).
+Loại chatbot này hoạt động dựa trên các quy tắc và câu trả lời được lập trình sẵn. Hệ thống chỉ cần phản hồi đúng với những tình huống đã được định nghĩa từ trước.
+Ưu điểm: dễ xây dựng, hoạt động ổn định với dữ liệu cố định, phù hợp với các hệ thống đơn giản.
+Nhược điểm: không hiểu ngữ cảnh, khó xử lý câu hỏi phức tạp, thiếu tính linh hoạt.
+Chatbot AI thông minh.
+Loại chatbot này sử dụng AI và NLP để hiểu ý định người dùng và phản hồi tự động.
+Ưu điểm: giao tiếp tự nhiên hơn, có khả năng học từ dữ liệu, xử lý được nhiều dạng câu hỏi khác nhau.
+Nhược điểm: cần dữ liệu huấn luyện lớn, chi phí phát triển cao hơn.
+Thành phần chính của hệ thống Chatbot AI.
+Một hệ thống chatbot thường gồm các phần như: giao diện người dùng, bộ xử lý ngôn ngữ tự nhiên, bộ quản lý hội thoại, cơ sở dữ liệu tri thức, bộ sinh phản hồi tự động. Các phần này phối hợp với nhau để tạo nên một hệ thống chatbot có khả năng tương tác hiệu quả.
+Ứng dụng của Chatbot AI.
+Hiện nay chatbot AI được ứng dụng trong nhiều lĩnh vực: giáo dục, thương mại, y tế, ngân hàng, doanh nghiệp,.... Trong lĩnh vực giáo dục, chatbot AI giúp giảm tải công việc tư vấn, hỗ trợ sinh viên nhanh chóng và nâng cao trải nghiệm người dùng.
+Vai trò của Chatbot AI trong chuyển đổi số.
+Chatbot AI là một trong những công nghệ quan trọng trong quá trình chuyển đổi số hiện nay. Việc ứng dụng chatbot giúp: tự động hóa quá trình hỗ trợ người dùng, hoạt động liên tục 24/7, tiết kiệm chi phí vận hành, nâng cao chất lượng dịch vụ, tăng khả năng tương tác với người dùng. Nhờ những ưu điểm này chatbot đang trở thành giải pháp phổ biến trong nhiều tổ chức, doanh nghiệp và cơ sở giáo dục.
+Các công nghệ và công cụ đề xuất sử dụng.
+Ngôn ngữ lập trình.
+Python.
+Python là ngôn ngữ lập trình phổ biến trong lĩnh vực trí tuệ nhân tạo, khoa học dữ liệu và xử lý ngôn ngữ tự nhiên nhờ cú pháp đơn giản, dễ mở rộng và có hệ sinh thái thư viện mạnh mẽ. Trong đề tài này Python được sử dụng để: thu thập dữ liệu tự động từ website đào tạo, tiền xử lý và làm sạch dữ liệu văn bản, xây dựng mô hình xử lý ngôn ngữ tự nhiên, tạo Vector Embedding phục vụ tìm kiếm ngữ nghĩa, tích hợp mô hình AI và xử lý phản hồi chatbot.
+Một số thư viện Python được sử dụng: BeautifulSoup, Selenium, Transformers, spaCy, LangChain, PyPDFLoader.
+JavaScript
+JavaScript được sử dụng để xây dựng giao diện tương tác thời gian thực cho hệ thống chatbot, giúp nâng cao trải nghiệm người dùng và hỗ trợ cập nhật nội dung động trên website.
+HTML / CSS
+HTML (HyperText Markup Language) và CSS (Cascading Style Sheets) là hai công nghệ nền tảng được sử dụng để xây dựng giao diện người dùng của hệ thống chatbot. HTML xây dựng cấu trúc trang web, trong khi CSS đảm nhận việc tạo kiểu dáng và bố cục trực quan, đảm bảo giao diện chat tương thích và hiển thị tốt trên nhiều thiết bị (Responsive Design).
+Công nghệ xử lý ngôn ngữ tự nhiên NLP.
+Embedding và Semantic Search.
+Hệ thống áp dụng kỹ thuật Embedding nhằm chuyển đổi dữ liệu văn bản thành vector ngữ nghĩa. Các vector này được lưu trữ trong cơ sở dữ liệu vector để hỗ trợ tìm kiếm theo ngữ nghĩa thay vì chỉ so khớp với từ khóa.
+Semantic Search giúp chatbot: hiểu ngữ cảnh câu hỏi, tìm kiếm thông tin liên quan chính xác hơn, hỗ trợ hội thoại tự nhiên và linh hoạt.
+Mô hình RAG (Retrieval-Augmented Generation)
+Mô hình RAG là phương pháp kết hợp giữa truy xuất dữ liệu từ cơ sở tri thức nội bộ và sinh phản hồi bằng mô hình ngôn ngữ lớn (LLM).
+Quy trình hoạt động: người dùng nhập câu hỏi → hệ thống tìm kiếm dữ liệu liên quan trong Vector Database → nội dung phù hợp được gửi tới mô hình AI → AI sinh phản hồi dựa trên dữ liệu truy xuất được.
+Phương pháp này giúp tăng độ chính xác câu trả lời, hạn chế thông tin sai lệch và khai thác hiệu quả dữ liệu nội bộ của trường.
+Framework và nền tảng phát triển.
+LangChain hỗ trợ xây dựng luồng xử lý AI và kết nối giữa mô hình ngôn ngữ lớn, vector database, prompt và dữ liệu nội bộ.
+Framework này giúp xây dựng pipeline chatbot AI linh hoạt và dễ mở rộng.
+Cơ sở dữ liệu.
+SQLite.
+SQLite được sử dụng để lưu trữ thông tin người dùng, lịch sử hội thoại, dữ liệu hệ thống, tài liệu đã crawl với tốc đỗ xử lý tốt, ổn định, gọn nhẹ và không cần cài đặt máy chủ phức tạp.
+ChromaDB.
+ChromaDB là cơ sở dữ liệu vector được sử dụng để lưu trữ embedding của tài liệu văn bản giúp hỗ trợ tìm kiếm ngữ nghĩa, truy xuất dữ liệu liên quan, phục vụ mô hình RAG. Việc sử dụng vector database giúp chatbot phản hồi chính xác và tự nhiên hơn.
+Công cụ xây dựng giao diện.
+HTML / CSS / JavaScript.
+Các công nghệ web cơ bản được sử dụng để xây dựng giao diện chatbot trực quan và thân thiện với người dùng giúp hiển thị giao diện chat, cập nhật tin nhắn thời gian thực, tối ưu trải nghiệm người dùng.
+Bootstrap.
+Hỗ trợ thiết kế giao diện responsive và tương thích trên nhiều thiết bị khác nhau.
+Công cụ triển khai và xử lý hệ thống.
+GitHub được sử dụng để quản lý source code, theo dõi phiên bản, hỗ trợ làm việc, lưu trữ nguồn hệ thống.
+Đề xuất mô hình công nghệ cho hệ thống.
+Hệ thống chatbot AI được đề xuất xây dựng theo mô hình kiến trúc gồm:
+- Frontend Website tương tác với người dùng.
+- Backend FastAPI xử lý API và quản lý hệ thống.
+- Python AI Service xử lý NLP và AI pipeline.
+- Vector Database lưu trữ embedding dữ liệu.
+- Google Gemini API (Gemini-flash-lite) hỗ trợ sinh phản hồi thông minh và phân tích đa phương thức (văn bản, hình ảnh).
+- SQLite lưu trữ lịch sử hội thoại, ChromaDB lưu trữ vector ngữ nghĩa.
+Mô hình này giúp cho hệ thống hoạt động ổn định, dễ mở rộng, tăng khả năng xử lý ngữ nghĩa, nâng cao độ chính xác phản hồi chatbot, phù hợp với việc hỗ trợ sinh viên ngành công nghệ thông tin. 
+CHƯƠNG 3: PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG
+Quy trình phát triển hệ thống.
+Hình  1: Sơ đồ quy trình xây dựng và triển khai hệ thống Chatbot AI
+Để đảm bảo tính khoa học và tiến độ thực hiện dự án, tôi đã xây dựng quy trình triển khai chi tiết gồm 8 giai đoạn được mô tả trong bảng dưới đây.
+Bảng  1: Quy trình chi tiết thực hiện dự án Chatbot AI
+STT
+Giai đoạn 
+Nội dung thực hiện chi tiết
+Kết quả mong đợi
+1
+Xác định mục tiêu & yêu cầu
+Khảo sát nhu cầu sinh viên IT, xác định các bài toán ( giải bài tập, tra cứu tài liệu...), phân tích yêu cầu chức năng và phi chức năng
+Tài liệu đặc tả yêu cầu phần mềm (SRS)
+2
+Phân tích & thiết kế hệ thống
+Thiết kế kiến trúc tổng thể, vẽ sơ đồ phân rã chức năng (BFD), sơ đồ luồng dữ liệu (DFD) và sơ đồ thực thể liên kết (ERD)
+Bản thiết kế kiến trúc hệ thống và cơ sở dữ liệu
+3
+Lựa chọn công nghệ & mô hình
+Đánh giá và lựa chọn mô hình LLM, Framework Backend, cơ sở dữ liệu Vector và công cụ phát triển phù hợp với yêu cầu hệ thống.
+Danh mục Tech Stack chính thức của dự án
+4
+Thu thập & xử lý dữ liệu
+Thu thập dữ liệu từ giáo trình, bài đăng, API docs, thực hiện cào dữ liệu (Crawl), làm sạch, chuẩn hóa và chia nhỏ văn bản (Chunking)
+Tập dữ liệu sạch (Cleaned Dataset) sẵn sàng cho Embedding
+5
+Xây dựng & tinh chỉnh RAG
+Thực hiện nhúng dữ liệu (Embedding) vào Vector DB, thiết kế Prompt Engineering, xây dựng pipeline truy xuất thông tin (RAG)
+Nhân (Engine) chatbot có khả năng trả lời dựa trên dữ liệu riêng.
+6
+Tích hợp & phát triển ứng dụng 
+Xây dựng Backend API để kết nối AI Engine , phát triển giao diện người dùng (Frontend), thực hiện xác thực và quản lí phiên chat
+Ứng dụng Chatbot hoàn chỉnh (bản Beta)
+7
+Kiểm thử & đánh giá
+Thực hiện Unit Test, đánh giá độ chính xác của câu trả lời dựa trên các bộ tiêu chuẩn, lấy phản hồi từ người dùng thử (UAT)
+Báo cáo kiểm thử và kết quả đánh giá hiệu năng.
+8
+Triển khai & bảo trì
+Đóng gói hệ thống (Dockerize), triển khai trên máy chủ (Cloud/VPS), thiết lập hệ thống giám sát và cập nhật dữ liệu định kì.
+Hệ thống hoạt động chính thức trên môi trường thực tế
+Phân tích yêu cầu hệ thống.
+Yêu cầu chức năng.
+Hệ thống Chatbot AI được xây dựng nhằm hỗ trợ sinh viên ngành Công nghệ thông tin trong việc tra cứu thông tin học tập và học vụ một cách nhanh chóng, chính xác và thuận tiện. Để đáp ứng mục tiêu đó, hệ thống cần đảm bảo các chức năng chính sau:
+Chức năng trò chuyện và hỏi đáp.
+Cho cho phép người dùng nhập câu hỏi bằng ngôn ngữ tự nhiên thông qua giao diện chatbot. Hệ thống tiếp nhận nội dung câu hỏi, xử lý ngữ nghĩa và phản hồi kết quả phù hợp dựa trên dữ liệu nội bộ.
+Chatbot hỗ trợ tra cứu thông tin học vụ, giải đáp quy chế đào tạo, hỗ trợ tìm kiếm tài liệu học tập, gợi ý kiến thức cơ bản ngành CNTT, hỗ trợ tham khảo xử lý lỗi lập trình cơ bản.
+Chức năng xử lý ngôn ngữ tự nhiên (NLP).
+Hệ thống sử dụng công nghệ NLP để phân tích nội dung câu hỏi, nhận diện ý định người dùng, xác định từ khóa quan trọng, hiểu ngữ cảnh hội thoại. Nhờ đó chatbot có khả năng phản hồi tự nhiên và chính xác so với hệ thống tìm kiếm thông thường.
+Chức năng truy xuất dữ liệu thông minh (RAG).
+Hệ thống áp dụng mô hình RAG nhằm kết hợp giữa truy xuất dữ liệu nội bộ và mô hình ngôn ngữ lớn (LLM).
+Khi người dùng gửi câu hỏi: hệ thống chuyển câu hỏi thành vector embedding → thực hiện tìm kiếm ngữ nghĩa trong vector database → truy xuất các tài liệu liên quan nhất → gửi dữ liệu tới mô hình AI để sinh phản hồi. Chức năng này giúp nâng cao độ chính xác và hạn chế thông tin sai lệch.
+Chức năng lưu lịch sử hội thoại.
+Toàn bộ nội dung trao đổi giữa người dùng và chatbot được lưu trữ nhằm mục đích: hỗ trợ theo dõi lịch sử trò chuyện, cải thiện chất lượng phản hồi, phục vụ quá trình đánh giá hệ thống.
+Chức năng xác thực và bảo mật người dùng (Authentication).
+Nhằm đảm bảo tính bảo mật và cá nhân hóa lịch sử hội thoại, hệ thống yêu cầu chức năng xác thực người dùng chặt chẽ:
+- Hệ thống hỗ trợ sinh viên đăng nhập và đăng kí tài khoản.
+- Triển khai cơ chế bảo mật 2 lớp thông qua việc gửi mã OTP trực tiếp về Email.
+- Quản lí phiên đăng nhập an toàn để lưu trữ riêng biệt lịch sử chat của từng sinh viên.
+Yêu cầu phi chức năng
+Ngoài các chức năng chính, hệ thống cần đáp ứng các yêu cầu phi chức năng sau:
+- Hiệu năng (thời gian phản hồi nhanh, tối ưu tốc độ tìm kiếm dữ liệu)
+- Bảo mật (bảo vệ dữ liệu người dùng, kiểm soát quyền truy cập, xác thực API an toàn).
+- Khả năng mở rộng (mở rộng dữ liệu, nâng cấp AI model, tích hợp thêm tính năng mới).
+Thiết kế kiến trúc hệ thống.
+Hình  2: Kiến trúc hệ thống tổng quan
+Mô hình kiến trúc tổng thể.
+Hệ thống chatbot AI được thiết kế theo mô hình Client - Server kết hợp kiến trúc AI hiện đại nhằm đảm bảo khả năng mở rộng và xử lý dữ liệu hiệu quả.
+Kiến trúc hệ thống gồm các thành phần chính: frontend giao diện người dùng, backend API FastAPI (Python), Python AI Service, Vector Database, SQLite và ChromaDB, Google Gemini API.
+Quy trình hoạt động của hệ thống.
+Người dùng hập câu hỏi trên giao diện chatbot → frontend gửi yêu cầu đến Backend → backend chuyển dữ liệu sang Python AI Service để xử lý NLP → hệ thống tạo embedding cho câu hỏi và tìm kiếm dữ liệu liên quan trong vector database → các dữ liệu phù hợp được gửi tới mô hình AI để tạo phản hồi → kết quả được trả về backend và hiển thị trên giao diện người dùng.
+Thành phần hệ thống.
+Frontend.
+Frontend đóng vai trò giao tiếp với người dùng, gồm: giao diện chat, hiển thị tin nhắn, nhập dữ liệu, hiển thị lịch sử hội thoại.
+Backend FastAPI.
+Backend chịu trách nhiệm: xử lý API, xác thực người dùng, quản lý dữ liệu, kết nối AI Service, lưu lịch sử trò chuyện.
+Python AI Service.
+Python AI Service thực hiện: xử lý NLP, embedding dữ liệu, semantic search, kết nối mô hình AI, xử lý phản hồi chatbot.
+Vector Database.
+Vector Database lưu trữ embedding của dữ liệu nhằm hỗ trợ tìm kiếm ngữ nghĩa, truy xuất tài liệu liên quan, hỗ trợ mô hình RAG.
+SQLite Database.
+SQLite dùng để lưu trữ thông tin người dùng, dữ liệu hệ thống, lịch sử hội thoại, tài liệu chatbot.
+Phân tích hệ thống (UML).
+UseCase Diagram.
+Hình  3: Sơ đồ Use Case Diagram
+Mô tả:
+- Actor (tác nhân): sinh viên và hệ thống AI.
+- Các Use Case của sinh viên: đăng kí tài khoản và nhận mã OTP, đăng nhập, đăng xuất, quản lý phiên chat (tạo chat mới, đổi tên , xóa), trò chuyện.
+- Các Use Case của hệ thống: Gửi Email OTP, truy xuất dữ liệu RAG, tìm kiếm Web, sinh câu trả lời.
+Activity Diagram.
+Hình  4: Sơ đồ Activity
+Sequence Diagram.
+Hình  5: Sơ đồ luồng đăng nhập và gửi câu hỏi
+Mô tả: Khi sinh viên gửi câu hỏi, Backend FastAPI tiếp nhận và lưu tin nhắn vào SQLite, sau đó chuyển truy vấn đến AI Engine LangGraph. AI Engine thực hiện embedding câu hỏi, truy vấn ChromaDB để lấy tài liệu liên quan, rồi gửi câu hỏi kèm ngữ cảnh đến Google Gemini API để sinh phản hồi. Kết quả sau đó được lưu lại vào SQLite và hiển thị cho sinh viên trên giao diện chatbot.
+Thiết kế cơ sở dữ liệu.
+Hệ thống SQLite gồm 4 bảng chính:
+Bảng user: lưu trữ thông tin tài khoản (id, username, email, password_hash).
+Bảng email_verifications: quản lý mã OTP (email, otp_code, expires_at, isused) luồng bảo mật 2 lớp.
+Bảng chat_sessions: quản lí phiên trò chuyện của sinh viên (session_id, user_id, title tự động tạo).
+Bảng messages: lưu chi tiết từng tin nhắn (session_id, role, content, timestamp).
+Hình  6: Thiết kế Cơ sở dữ liệu
+CHƯƠNG 4: TRIỂN KHAI VÀ ĐÁNH GIÁ KẾT QUẢ
+Môi trường phát triển.
+Để có thể xây dựng và phát triển hệ thống Chatbot AI dành cho sinh viên ngành Công nghệ thông tin một cách thuận lợi, đề tài đã sử dụng các công nghệ và công cụ phát triển hiện đại nhằm đảm bảo hiệu năng, khả năng mở rộng và tính ổn định của hệ thống.
+Phần cứng.
+Hệ thống được phát triển trên máy tính cá nhân với cấu hình:
+- CPU: Intel Core i5.
+- Ram: 8GB.
+- Ổ cứng: SSD.
+- Kết nối Internet ổn định.
+Phần mềm và công nghệ sử dụng.
+Bảng  2: Các phần mềm và công nghệ được dùng
+Thành phần
+công nghệ sử dụng
+Backend
+FastAPI (Python)
+AI Service
+Python 3.12
+Frontend
+HTML/CSS/JavaScript
+Database
+SQLite + ChromaDB
+Vector Database
+Chroma DB
+NLP
+spaCY/Transformers
+AI Model
+Google Gemini API
+Web Crawling
+BeautifulSoup, https
+API Testing
+Postman
+Source Control
+GitHub
+HuggingFace Embeddings
+Keepitreal/vietnamese-sbert
+DuckDuckGoSearchResults
+DuckDuckGo 
+Môi trường triển khai.
+Hệ thống được triển khai theo mô hình Client - Server:
+- Frontend chạy trên trình duyệt web.
+- Backend FastAPI xử lý API.
+- Python AI Service xử lý NLP và AI pipeline.
+- Dữ liệu được lưu trữ trên SQLite và ChromaDB.
+Kiến trúc này giúp hệ thống hoạt động ổn định và dễ dàng mở rộng trong tương lai.
+Xây dựng phân hệ thu thập và chuẩn bị dữ liệu.
+Hình  7: Sơ đồ quy trình tiền xử lý dữ liệu
+Thu thập dữ liệu.
+Để chatbot có khả năng trả lời chính xác, dữ liệu được thu thập và sử dụng từ dữ liệu thực tế của nhà trường.
+Nguồn dữ liệu bao gồm: chương trình đào tạo, đề cương học phần, file PDF đính kèm, nội dung từ website nhà trường.
+Nội dung từ website sẽ được xử lý bằng cách sử dụng Python kết hợp với BeauftifulSoup, Selenium và Requests để Scraping tự động nội dung từ web.
+Làm sạch và chuẩn hóa dữ liệu.
+Sau khi thu thập, dữ liệu được xử lý như sau: loại bỏ mã HTML → chuẩn hóa Unicode tiếng Việt → loại bỏ kí tự đặc biệt → tách đoạn văn bản → chuẩn hóa định dạng dữ liệu. Quá trình này giúp tăng chất lượng dữ liệu đầu vào cho mô hình AI.
+Chia nhỏ dữ liệu.
+Các tài liệu văn bản được chia thành nhiều đoạn nhỏ giúp tối ưu tìm kiếm ngữ nghĩa, nâng cao độ chính xác của mô hình RAG, giảm tải dữ liệu đầu vào. Mỗi đoạn dữ liệu sau khi chia được lưu trữ riêng biệt trong hệ thống. 
+Tạo Embeddings và Vector Database.
+Hệ thống sử dụng kĩ thuật Embedding để chuyển đổi văn bản thành vector ngữ nghĩa.
+Quy trình tạo: văn bản được đưa vào mô hình Embedding → hệ thống tạo vector đặc trưng → vector được lưu trữ trong ChromaDB.
+Việc sử dụng vector Database giúp chatbot tìm kiếm thông tin dựa trên ngữ nghĩa thay vì chỉ dựa vào các từ khóa.
+Xây dựng phân hệ Backend và API.
+Hình  8: Sơ đồ luồng LangGraph
+Xây dựng Backend bằng FastAPI.
+Backend được phát triển bằng Framework FastAPI nhằm: quản lí dữ liệu, xử lý API, xác thực người dùng, lưu lịch sử hội thoại, kết nối AI Service.
+FastAPI giúp hệ thống: dễ bảo trì, bảo mật tốt, khả năng mở rộng cao.
+Thiết kế RESTful API.
+Hệ thống xây dựng các API chính:
+- API gửi câu hỏi cho chatbot.
+- API nhận phản hồi AI.
+- API quản lý lịch sử hội thoại.
+- API quản lý dữ liệu tài liệu.
+Kết nối AI Service và triển khai kiến trúc Agentic RAG.
+Phân hệ AI (ai_engine.py) được thiết kế theo kiến trúc Agentic RAG thông qua thư viện LangGraph nhằm định tuyến và xử lý linh hoạt các truy vấn phức tạp của sinh viên. Quy trình pipeline được chia thành các node xử lý những nhiệm vụ khác nhau:
+- Node phân loại ý định (Intent Classification - categorize): Khi nhận câu hỏi đầu tiên, LLM phân tích và phân loại câu hỏi của sinh viên vào một trong 5 danh mục: Programming, Roadmap, Career, Projects, hoặc GeneralIT.
+- Node phân tích cảm xúc : đánh giá thái độ sinh viên để chatbot có thể điều chỉnh ngữ điệu phản hồi tự nhiên và đồng cảm hơn.
+- Node định tuyến truy vấn (Query Routing - route_query): Phân tích câu hỏi để đưa ra quyết định định tuyến tới 'internal' (tra cứu dữ liệu nội bộ trường học) hay 'external' (tìm kiếm kiến thức chung từ Web).
+- Node truy xuất tri thức nội bộ (RAG - retrieve_rag): Mã hóa câu hỏi thành vector ngữ nghĩa thông qua mô hình keepitreal/vietnamese-sbert để truy vấn 3 đoạn văn bản liên quan nhất từ cơ sở dữ liệu vector ChromaDB. Nếu không tìm thấy kết quả phù hợp, hệ thống tự động kích hoạt cơ chế dự phòng (Fallback) sang Web Search.
+- Node tìm kiếm ngoài Web (Web Search - web_search): Sử dụng công cụ DuckDuckGo Search để tìm kiếm thông tin và cào nội dung trực tiếp từ các trang web (ví dụ: danh sách giảng viên trên site ttn.edu.vn) để lấy dữ liệu mới nhất.
+- Node sinh phản hồi : Nhận dữ liệu từ RAG hoặc Web Search, kết hợp với lịch sử trò chuyện tối đa 10 tin nhắn gần nhất, đưa qua mô hình Google Gemini để tổng hợp thành câu trả lời tự nhiên, thân thiện và mạch lạc.
+Lưu lịch sử hội thoại.
+Mọi nội dung trao đổi giữa sinh viên và chatbot được lưu trong SQLite nhằm hỗ trợ xem lại lịch sử chat, cải thiện trải nghiệm của sinh viên, phục vụ đánh giá hệ thống.
+Triển khai cơ chế xác thực và bảo mật OTP.
+Trong hệ thống Backend, Module xác thực (auth.py) được thiết kế đặc biệt để tăng cường bảo mật cho hệ thống. Thay vì chỉ sử dụng mật khẩu thông thường, hệ thống tích hợp giao thức SMTP để gửi mã xác thực OTP 6 số ngẫu nhiên về Email của sinh viên khi đăng kí hoặc quên mật khẩu. OTP chỉ có hiệu lực trong 1 khoảng thời gian, giúp ngăn chặn các cuộc tấn công đánh cắp tài khoản và đảm bảo an toàn thông tin cá nhân của người dùng trên hệ thống.
+Xây dựng giao diện người dùng.
+Giao diện Chatbot.
+Giao diện chatbot được thiết kế theo hướng trực quan, đơn giản, dễ sử dụng với các chức năng chính là nhập câu hỏi, hiển thị phản hồi AI, hiển thị lịch sử chat, hỗ trợ cuộn hội thoại.
+Thiết kế Responsive.
+Hệ thống sử dụng Bootstrap để tối ưu hiển thị trên máy tính, máy tính bảng, điện thoại di động. Điều này giúp sinh viên dễ dàng sử dụng chatbot trên nhiều thiết bị khác nhau.
+Đánh giá và thử nghiệm.
+Kiểm thử chức năng.
+Chatbot được kiểm thử với các chức năng: gửi câu hỏi, phản hồi chatbot, tìm kiếm dữ liệu, lưu lịch sử hội thoại, đăng nhập, đăng kí. Kết quả là các chức năng hoạt động ổn định và đúng yêu cầu.
+Đánh giá hiệu năng.
+Bảng  3: Đánh giá hiệu năng
+Tiêu chí
+Kết quả
+Thời gian phản hồi trung bình
+5-10 giây
+Hỗ trợ tiếng Việt
+Có
+Tìm kiếm ngữ nghĩa
+Có
+Lưu lịch sử hội thoại
+Có
+Hỗ trợ dữ liệu nội bộ
+Có
+Đánh giá độ chính xác.
+Hạn chế của hệ thống.
+Mặc dù đã đạt được nhiều kết quả tích cực nhưng hệ thống vẫn còn một số hạn chế:
+- Phụ thuộc chất lượng dữ liệu đầu vào.
+- Chưa hỗ trợ xử lý giọng nói và file đăng tải.
+- Chưa hỗ trợ đa ngôn ngữ.
+- Một số phản hồi phức tạp vẫn chưa trả lời chính xác hoàn toàn.
+Kết quả đạt được.
+Sau khi triển khai, đề tài đã:
+- Xây dựng thành công chatbot AI hỗ trợ sinh viên ngành CNTT.
+- Triển khai hệ thống backend và AI pipeline.
+- Xây dựng cơ chế RAG và semantic search.
+- Tích hợp mô hình AI hiện đại.
+- Hỗ trợ tra cứu thông tin học vụ và học tập.
+Hệ thống đã bước đầu đáp ứng được mục tiêu đề tài và có khả năng mở rộng trong tương lai.
+CHƯƠNG 5: KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+Kết quả đạt được.
+Sau quá trình nghiên cứu, thiết kế và triển khai, đề tài “Xây dựng Chatbot AI dành cho sinh viên ngành Công nghệ thông tin” đã đạt được các kết quả chính sau:
+- Nghiên cứu và tìm hiểu các công nghệ liên quan đến Trí tuệ nhân tạo (AI), Xử lý ngôn ngữ tự nhiên (NLP), mô hình RAG và hệ thống chatbot hiện đại.
+- Xây dựng được cơ sở tri thức từ dữ liệu thực tế của nhà trường thông qua quá trình thu thập và xử lý dữ liệu tự động.
+- Xây dựng hệ thống Backend bằng FastAPI (Python) phục vụ quản lý dữ liệu, xử lý API và lưu lịch sử hội thoại.
+- Xây dựng Python AI Service hỗ trợ xử lý NLP, semantic search và tích hợp mô hình AI.
+- Áp dụng kỹ thuật Embedding và Vector Database nhằm nâng cao khả năng tìm kiếm ngữ nghĩa và độ chính xác của chatbot.
+- Triển khai thành công mô hình RAG giúp chatbot truy xuất dữ liệu nội bộ trước khi sinh phản hồi.
+- Thiết kế giao diện chatbot trực quan, thân thiện và hỗ trợ tương tác thời gian thực.
+- Hệ thống có khả năng hỗ trợ sinh viên tra cứu thông tin học vụ, tìm kiếm tài liệu và giải đáp một số kiến thức cơ bản ngành Công nghệ thông tin.
+Kết quả đạt được cho thấy hệ thống chatbot AI bước đầu đáp ứng được mục tiêu nghiên cứu đề ra và có khả năng ứng dụng thực tế trong môi trường giáo dục.
+Khuyết điểm và hạn chế.
+ Chatbot vẫn còn các hạn chế nhất định:
+- Chất lượng phản hồi của chatbot phụ thuộc nhiều vào dữ liệu được thu thập và chuẩn hóa.
+- Số lượng tài liệu trong cơ sở tri thức còn hạn chế nên khả năng hỗ trợ chưa bao quát toàn bộ lĩnh vực chuyên ngành CNTT.
+- Chatbot hiện chủ yếu hỗ trợ văn bản, chưa tích hợp xử lý giọng nói hoặc file đính kèm.
+- Một số câu hỏi có ngữ cảnh quá phức tạp hoặc chuyên sâu có thể khiến chatbot phản hồi chưa thật sự chính xác.
+- Việc  sử dụng API mô hình AI bên ngoài có thể phát sinh chi phí vận hành khi triển khai ở quy mô lớn.
+- Chatbot chưa hỗ trợ đa ngôn ngữ và chưa có cơ chế huấn luyện mô hình riêng biệt cho dữ liệu chuyên ngành.
+Những hạn chế đó chính là cơ sở để tiếp tục nghiên cứu và cải thiện chatbot trong tương lai.
+Hướng phát triển tương lai.
+Trong thời gian tới, chatbot sẽ tiếp tục mở rộng và nâng cấp theo hướng sau:
+- Mở rộng cơ sở dữ liệu tri thức với nhiều tài liệu học tập, giáo trình và dữ liệu chuyên ngành hơn.
+- Tích hợp thêm khả năng xử lý giọng nói và nhận diện hình ảnh nhằm nâng cao trải nghiệm người dùng.
+- Xây dựng mô hình AI chuyên biệt cho lĩnh vực giáo dục và Công nghệ thông tin để nâng cao độ chính xác.
+- Tích hợp chatbot trực tiếp vào hệ thống quản lý đào tạo (LMS) hoặc website chính thức của nhà trường.
+- Phát triển ứng dụng trên nền tảng di động nhằm hỗ trợ sinh viên thuận tiện hơn.
+- Hỗ trợ đa ngôn ngữ và cải thiện khả năng hội thoại theo ngữ cảnh dài.
+- Nâng cấp hệ thống tìm kiếm ngữ nghĩa và tối ưu mô hình RAG để tăng tốc độ phản hồi.
+- Nghiên cứu triển khai mô hình AI nội bộ nhằm giảm phụ thuộc vào các dịch vụ AI bên ngoài.
+Với khả năng mở rộng và ứng dụng thực tiễn cao, hệ thống chatbot AI sẽ trở thành công cụ hỗ trợ học tập hiệu quả, góp phần thúc đẩy quá trình chuyển đổi số trong môi trường giáo dục đại học.
+TÀI LIỆU THAM KHẢO
+[1] Chatbot – Đồ án tốt nghiệp đại học, SlideShare. Available at:SlideShare Presentation https://www.slideshare.net/slideshow/chatbot_-d-an-t-t-nghi-p-d-i-h-c-m-pdf/272550992(Accessed: 21 May 2026). 
+[2] Phạm Thị Thu Hiếu, Vũ Hùng Cường Long (2025), Nghiên cứu và ứng dụng Chatbot AI trong hỗ trợ giáo dục. Available at:PDF Research Document   
+https://tamlygiaoduc.com.vn/wp-content/uploads/2025/04/24.EDITED-Pham-Thi-Thu-Hieu-Vu-Hung-Cuong-Long.pdf?utm_source=chatgpt.com(Accessed: 21 May 2026). 
+[3] aashutosh585, Chatbot Source Code Repository, GitHub. Available at:GitHub Repository https://github.com/aashutosh585/chatbot?utm_source=chatgpt.com(Accessed: 21 May 2026). 
+PHỤ LỤC
+PHỤ LỤC A: CẤU TRÚC THƯ MỤC CỦA DỰ ÁN
+Dưới đây là sơ đồ tổ chức mã nguồn của hệ thống Chatbot AI:
+GenAI_Agents-main/
+│
+├── backend/                       # Thư mục chứa mã nguồn Backend (FastAPI, LangGraph)
+│   ├── routes/                    # Định nghĩa các API endpoints
+│   │   ├── __init__.py
+│   │   ├── auth_routes.py         # API xác thực (Gửi OTP, Đăng ký, Đăng nhập)
+│   │   ├── chat_routes.py         # API chat hội thoại (Text, Hình ảnh, Xóa lịch sử)
+│   │   └── session_routes.py      # API quản lý phiên chat (Đổi tên, xóa, danh sách)
+│   │
+│   ├── ai_engine.py               # Kiến trúc luồng tác tử (LangGraph), LLM, RAG & Web Search
+│   ├── app.py                     # Entry point khởi chạy server FastAPI (Port: 8004)
+│   ├── auth.py                    # Cấu hình bảo mật JWT Token & mã hóa mật khẩu
+│   ├── config.py                  # Đọc và quản lý các tham số cấu hình từ file .env
+│   ├── database.py                # Định nghĩa Schema SQLite và các hàm CRUD
+│   ├── email_service.py           # Dịch vụ gửi mã OTP tự động qua SMTP Gmail
+│   └── ingest.py                  # Script tiền xử lý và nạp dữ liệu tài liệu vào ChromaDB
+│
+├── chroma_db/                     # Thư mục lưu trữ cơ sở dữ liệu Vector (Vector Database)
+│
+├── data/                          # Thư mục chứa dữ liệu tài liệu huấn luyện (Định dạng PDF, PNG)
+│   ├── chuong_trinh_dao_tao/      # Chứa các file PDF về chương trình đào tạo các năm
+│   ├── de_cuong_hoc_phan/         # Chứa đề cương chi tiết các học phần chuyên ngành
+│   ├── hoat_dong_ngoai_khoa/      # Chứa quy chế, kế hoạch hoạt động ngoại khóa
+│   ├── nghien_cuu_va_do_an/       # Chứa quy định về NCKH và đồ án tốt nghiệp
+│   ├── quy_che_dao_tao/           # Chứa quyết định đào tạo tín chỉ, học phí, học bổng
+│   └── thong_tin_nganh_cntt/      # Chứa thông tin giới thiệu và lịch sử phát triển ngành
+│
+├── database/                      # Thư mục chứa cơ sở dữ liệu SQLite
+│   └── chat_history.db            # File SQLite lưu tài khoản, phiên chat, tin nhắn và mã OTP
+│
+├── static/                        # Thư mục chứa giao diện Frontend (Client-side)
+│   ├── index.html                 # Trang chủ giao diện Web của Chatbot
+│   ├── script.js                  # Logic điều khiển, gọi API Backend và cập nhật UI
+│   └── style.css                  # Thiết kế giao diện (Responsive, Dark/Light mode)
+│
+├── .env                           # File cấu hình bảo mật các API Key và cấu hình SMTP
+├── requirements.txt               # Danh sách thư viện Python cần thiết của dự án
+└── README.md                      # Hướng dẫn cài đặt và vận hành hệ thống
+PHỤ LỤC B: DANH MỤC CÔNG NGHỆ VÀ THƯ VIỆN CHÍNH
+Hệ thống sử dụng ngôn ngữ lập trình Python (phiên bản >= 3.10) với các thư viện cốt lõi sau:
+STT
+Tên thư viện
+Phiên bản
+Vai trò trong hệ thống
+1
+FastAPI
+>= 0.110.0
+Framework chính để xây dựng cổng API hiệu năng cao
+2
+LangGraph
+0.2.18
+Quản lý và lập trình đồ thị luồng Agentic AI có trạng thái (Stateful)
+3
+LangChain
+0.2.16
+Thư viện kết nối giữa LLM, cơ sở dữ liệu Vector và các Prompt
+4
+langchain-google-genai
+1.0.x
+Thư viện tích hợp để gọi API mô hình ngôn ngữ Google Gemini
+5
+langchain-chroma
+0.2.4
+Kết nối và thực thi các truy vấn trên cơ sở dữ liệu vector ChromaDB
+6
+sentence-transformers
+Thích hợp
+Tạo vector nhúng (Embeddings) cục bộ thông qua mô hình tiếng Việt keepitreal/vietnamese-sbert
+7
+Uvicorn
+>= 0.28.0
+Web server ASGI để chạy ứng dụng FastAPI
+8
+python-jose[cryptography]
+>= 3.3.0
+Mã hóa, giải mã và xác thực chữ ký số JSON Web Token (JWT)
+9
+Bcrypt
+Thích hợp
+Mã hóa (Hash) bảo mật mật khẩu người dùng một chiều
+10
+DuckDuckGo-Search
+6.2.13
+Cung cấp công cụ tìm kiếm thông tin từ Internet ngoài (Web Search Fallback)
+11
+BeautifulSoup4
+>= 4.12.0
+Hỗ trợ bóc tách và làm sạch nội dung text từ các trang web cào được
+PHỤ LỤC C: THIẾT KẾ CHI TIẾT CƠ SỞ DỮ LIỆU (SQLITE)
+Cơ sở dữ liệu của ứng dụng bao gồm 4 bảng lưu trữ trong tệp tin chat_history.db:
+1. Bảng users (Quản lý tài khoản)
+Lưu trữ thông tin định danh và xác thực của người dùng (sinh viên).
+Tên trường
+Kiểu dữ liệu
+Ràng buộc
+Mô tả
+id
+INTEGER
+PRIMARY KEY AUTOINCREMENT
+Khóa chính tự động tăng
+username
+TEXT
+UNIQUE NOT NULL
+Tên tài khoản đăng nhập
+email
+TEXT
+UNIQUE NOT NULL
+Địa chỉ email đăng ký (dùng nhận OTP)
+password_hash
+TEXT
+NOT NULL
+Mật khẩu đã được mã hóa bằng thuật toán Bcrypt
+created_at
+DATETIME
+DEFAULT CURRENT_TIMESTAMP
+Thời gian tài khoản được tạo
+Lệnh SQL tạo bảng:
+CREATE TABLE IF NOT EXISTS users (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    username      TEXT UNIQUE NOT NULL,
+    email         TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    created_at    DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+2. Bảng chat_sessions (Phiên trò chuyện)
+Quản lý các luồng trò chuyện khác nhau của từng sinh viên.
+Tên trường
+Kiểu dữ liệu
+Ràng buộc
+Mô tả
+id
+INTEGER
+PRIMARY KEY AUTOINCREMENT
+Khóa chính tự động tăng
+session_id
+TEXT
+UNIQUE NOT NULL
+Khóa phụ duy nhất kiểu UUID4 để kết nối Client-Server
+user_id
+INTEGER
+NOT NULL, FOREIGN KEY
+Liên kết với id trong bảng users
+title
+TEXT
+DEFAULT ‘Cuộc trò chuyện mới’
+Tiêu đề hiển thị của phiên chat
+created_at
+DATETIME
+DEFAULT CURRENT_TIMESTAMP
+Thời gian tạo phiên
+updated_at
+DATETIME
+DEFAULT CURRENT_TIMESTAMP
+Thời gian có tin nhắn mới nhất
+Lệnh SQL tạo bảng:
+CREATE TABLE IF NOT EXISTS chat_sessions (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id TEXT UNIQUE NOT NULL,
+    user_id    INTEGER NOT NULL,
+    title      TEXT DEFAULT 'Cuộc trò chuyện mới',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+3. Bảng messages (Lịch sử hội thoại)
+Lưu giữ chi tiết các câu hỏi của người dùng và câu trả lời từ hệ thống.
+Tên trường
+Kiểu dữ liệu
+Ràng buộc
+Mô tả
+id
+INTEGER
+PRIMARY KEY AUTOINCREMENT
+Khóa chính tự động tăng
+session_id
+TEXT
+NOT NULL
+Liên kết với session_id trong bảng chat_sessions
+role
+TEXT
+NOT NULL
+Vai trò gửi tin: user (người dùng) hoặc bot (hệ thống)
+content
+TEXT
+NOT NULL
+Nội dung chi tiết của tin nhắn dạng văn bản
+timestamp
+DATETIME
+DEFAULT CURRENT_TIMESTAMP
+Thời gian tin nhắn được lưu
+Lệnh SQL tạo bảng:
+CREATE TABLE IF NOT EXISTS messages (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id TEXT NOT NULL,
+    role       TEXT NOT NULL,
+    content    TEXT NOT NULL,
+    timestamp  DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+4. Bảng email_verifications (Mã xác thực OTP)
+Lưu giữ trạng thái mã dùng một lần khi đăng ký tài khoản.
+Tên trường
+Kiểu dữ liệu
+Ràng buộc
+Mô tả
+id
+INTEGER
+PRIMARY KEY AUTOINCREMENT
+Khóa chính tự động tăng
+email
+TEXT
+NOT NULL
+Email đăng ký nhận mã OTP
+otp_code
+TEXT
+NOT NULL
+Chuỗi 6 chữ số OTP được sinh ngẫu nhiên
+expires_at
+TEXT
+NOT NULL
+Thời gian hết hạn của OTP (định dạng ISO 8601)
+is_used
+INTEGER
+DEFAULT 0
+Trạng thái sử dụng (0: chưa dùng, 1: đã dùng/bị hủy)
+created_at
+DATETIME
+DEFAULT CURRENT_TIMESTAMP
+Thời điểm hệ thống gửi OTP
+Lệnh SQL tạo bảng:
+CREATE TABLE IF NOT EXISTS email_verifications (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    email      TEXT NOT NULL,
+    otp_code   TEXT NOT NULL,
+    expires_at TEXT NOT NULL,
+    is_used    INTEGER DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+PHỤ LỤC D: TÀI LIỆU ĐẶC TẢ API ENDPOINTS
+Hệ thống sử dụng kiến trúc RESTful API cho Backend với các endpoint chính sau:
+1. Nhóm Xác Thực (/auth)
+POST /auth/send-otp
+Mô tả: Tiếp nhận địa chỉ email của sinh viên, sinh mã OTP 6 số và gửi vào email qua dịch vụ SMTP.
+Body: {"email": "student_email@gmail.com"}
+POST /auth/register
+Mô tả: Đăng ký tài khoản sinh viên sau khi xác thực OTP thành công.
+Body: {"username": "...", "email": "...", "password": "...", "otp_code": "..."}
+POST /auth/login
+Mô tả: Kiểm tra thông tin đăng nhập, trả về JWT Access Token nếu thông tin chính xác.
+Body: {"username": "...", "password": "..."}
+GET /auth/me
+Mô tả: Lấy thông tin tài khoản hiện tại từ JWT Token trong Header.
+Header: Authorization: Bearer <JWT_TOKEN>
+2. Nhóm Quản Lý Phiên Chat (/sessions)
+(Yêu cầu Header xác thực JWT)
+GET /sessions
+Mô tả: Lấy toàn bộ danh sách phiên trò chuyện của sinh viên hiện tại, xếp theo thứ tự mới nhất.
+POST /sessions
+Mô tả: Tạo một phiên trò chuyện trống mới.
+Body: {"title": "..."} (Mặc định: ‘Cuộc trò chuyện mới’)
+PATCH /sessions/{session_id}
+Mô tả: Đổi tên tiêu đề hiển thị của phiên trò chuyện.
+Body: {"title": "Tên mới"}
+DELETE /sessions/{session_id}
+Mô tả: Xóa phiên trò chuyện và toàn bộ lịch sử tin nhắn liên quan.
+3. Nhóm Hội Thoại (/chat)
+POST /chat
+Mô tả: Nhận câu hỏi từ sinh viên, đưa qua đồ thị LangGraph xử lý (bao gồm phân loại, phân tích cảm xúc, RAG, Web Search) và trả về câu trả lời.
+Body: {"session_id": "...", "message": "..."}
+POST /chat-image (Sử dụng Multipart/Form-Data)
+Mô tả: Tiếp nhận ảnh đính kèm kèm câu hỏi text, trích xuất dữ liệu đa phương thức bằng Gemini Vision, sau đó định tuyến trả lời.
+Form: session_id, message, file (File ảnh)
+GET /history/{session_id}
+Mô tả: Lấy toàn bộ lịch sử tin nhắn của một phiên cụ thể để khôi phục giao diện khi tải lại trang.
+POST /clear-history
+Mô tả: Xóa toàn bộ lịch sử tin nhắn của một phiên trò chuyện cụ thể.
+Yêu cầu xác thực: Có (Header Authorization: Bearer <JWT_TOKEN>)
+Body (JSON):
+{
+  "session_id": "chuỗi-uuid-phiên-chat",
+  "message": ""}
+Phản hồi thành công (200 OK):
+{
+  "status": "success"}
+PHỤ LỤC E: CẤU HÌNH BIẾN MÔI TRƯỜNG (.env)
+Để ứng dụng vận hành chính xác, file .env tại thư mục gốc của dự án cần cấu hình các thông số sau:
+# --- GOOGLE GEMINI API KEY (Dùng cho LLM và RAG) ---
+GOOGLE_API_KEY=AIzaSyA... # Khóa API được cấp từ Google AI Studio
+# --- CẤU HÌNH DỊCH VỤ SMTP GỬI EMAIL OTP ---
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_gmail@gmail.com # Địa chỉ email gửi mã OTP
+SMTP_PASSWORD=abcd efgh ijkl mnop   # Mật khẩu ứng dụng (App Password) cấp từ Google Account
+# --- CẤU HÌNH JWT BẢO MẬT (TÙY CHỌN TRONG CODE) ---
+SECRET_KEY=yoursecretkeyhere... # Khóa bí mật dùng để ký chữ ký JWT (Mặc định trong code có sẵn)

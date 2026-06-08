@@ -293,6 +293,25 @@ body {
 .app-container {
     display: flex;
     height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar Overlay — CHỈ dùng trên mobile khi sidebar overlay trên nội dung */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 14, 26, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: 90;
+    animation: overlayFadeIn 0.2s ease;
+}
+
+/* overlay chỉ active trên mobile */
+@media (max-width: 768px) {
+    .sidebar-overlay.active {
+        display: block;
+    }
 }
 
 /* ============================================================
@@ -300,6 +319,7 @@ body {
 ============================================================ */
 .sidebar {
     width: 280px;
+    min-width: 280px;
     background: var(--sidebar-bg);
     border-right: 1px solid var(--glass-border);
     display: flex;
@@ -307,6 +327,23 @@ body {
     padding: 20px 16px;
     gap: 12px;
     overflow: hidden;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s ease,
+                border-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Trạng thái thu gọn sidebar */
+.sidebar.collapsed {
+    width: 0;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-right-color: transparent;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .logo {
@@ -438,6 +475,77 @@ body {
     background: rgba(239, 68, 68, 0.1);
 }
 
+/* Nut doi ten (but chi) */
+.session-rename {
+    background: none;
+    border: none;
+    color: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 3px 5px;
+    border-radius: 4px;
+    transition: all var(--transition);
+    flex-shrink: 0;
+}
+
+.session-item:hover .session-rename {
+    color: var(--text-dim);
+}
+
+.session-rename:hover {
+    color: var(--primary) !important;
+    background: rgba(0, 210, 255, 0.1);
+}
+
+/* Inline edit input khi doi ten */
+.session-rename-input {
+    flex: 1;
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    border-radius: 5px;
+    color: var(--text-main);
+    font-size: 13px;
+    padding: 2px 7px;
+    outline: none;
+    min-width: 0;
+    font-family: inherit;
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.12);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.session-rename-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.15);
+}
+
+/* Nut xac nhan / huy khi dang sua ten */
+.session-confirm-rename,
+.session-cancel-rename {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 3px 5px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: all var(--transition);
+}
+
+.session-confirm-rename {
+    color: var(--success);
+}
+.session-confirm-rename:hover {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.session-cancel-rename {
+    color: var(--text-dim);
+}
+.session-cancel-rename:hover {
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.08);
+}
+
 /* Guest hint */
 .guest-hint {
     background: var(--glass-bg);
@@ -538,6 +646,95 @@ body {
     align-items: center;
     flex-shrink: 0;
     backdrop-filter: blur(8px);
+    /* Truot padding-left theo sidebar */
+    transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Khi sidebar dong: day header sang phai cho nut toggle */
+.sidebar.collapsed ~ .chat-container .chat-header {
+    padding-left: 56px;
+}
+
+/* ============================================================
+   Nut Toggle Sidebar -- Fixed, luon hien thi
+============================================================ */
+.sidebar-toggle-btn {
+    position: fixed;
+    /* Sidebar dang mo: nam trong sidebar, goc phai tren */
+    top: 16px;
+    left: calc(280px - 48px);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    padding: 0;
+    /* Truot left cung sidebar */
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
+}
+
+.sidebar-toggle-btn:hover {
+    background: rgba(0, 210, 255, 0.15);
+    border-color: rgba(0, 210, 255, 0.5);
+    box-shadow: 0 0 14px rgba(0, 210, 255, 0.2);
+}
+
+.sidebar-toggle-btn:active {
+    transform: scale(0.92);
+}
+
+/* Khi sidebar DONG: nut dich sang trai */
+.sidebar-toggle-btn.sidebar-hidden {
+    left: 8px;
+}
+
+/* -- ICON LOGIC -------------------------------------------- */
+.hamburger-line {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--text-muted);
+    border-radius: 2px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.sidebar-toggle-btn:hover .hamburger-line {
+    background: var(--primary);
+}
+
+/* Mac dinh -- sidebar DANG MO --> hien X (de dong) */
+.hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* sidebar-hidden -- sidebar DONG --> hien 3 gach (de mo) */
+.sidebar-toggle-btn.sidebar-hidden .hamburger-line:nth-child(1) {
+    transform: none;
+}
+.sidebar-toggle-btn.sidebar-hidden .hamburger-line:nth-child(2) {
+    opacity: 1;
+    transform: scaleX(1);
+}
+.sidebar-toggle-btn.sidebar-hidden .hamburger-line:nth-child(3) {
+    transform: none;
 }
 
 .header-info h2 {
@@ -1210,3 +1407,110 @@ body {
 }
 
 #otp-timer.expired { color: #e74c3c; }
+
+/* ============================================================
+   Responsive -- Mobile
+============================================================ */
+@media (max-width: 768px) {
+    /* Sidebar nam de len content khi mo */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 95;
+        transform: translateX(0);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.25s ease;
+        width: 280px !important;
+        min-width: 280px !important;
+        padding: 20px 16px !important;
+        opacity: 1 !important;
+        border-right-color: var(--glass-border) !important;
+        pointer-events: auto !important;
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* Tren mobile: nut toggle o z-index cao hon sidebar */
+    .sidebar-toggle-btn {
+        z-index: 200;
+    }
+
+    /* Chat container chiem full width tren mobile */
+    .chat-container {
+        width: 100%;
+    }
+
+    /* Padding header gon hon */
+    .chat-header {
+        padding: 12px 14px;
+    }
+
+    /* Messages padding nho hon */
+    .chat-messages {
+        padding: 16px 14px;
+    }
+
+    .message {
+        max-width: 94%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-info h2 {
+        font-size: 14px;
+    }
+    .header-info p {
+        display: none;
+    }
+}
+
+/* ============================================================
+   Embed Mode Override (for floating widget iframe)
+   ============================================================ */
+body.embed-mode {
+    background: transparent !important;
+}
+
+body.embed-mode .sidebar,
+body.embed-mode .sidebar-overlay,
+body.embed-mode .sidebar-toggle-btn {
+    display: none !important;
+}
+
+body.embed-mode .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body.embed-mode .chat-container {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    height: 100vh !important;
+    width: 100vw !important;
+}
+
+body.embed-mode .chat-header {
+    padding: 10px 16px !important;
+}
+
+body.embed-mode .chat-messages {
+    padding: 12px 16px !important;
+}
+
+body.embed-mode .chat-input-area {
+    padding: 10px 16px !important;
+}
+
+body.embed-mode .sidebar.collapsed ~ .chat-container .chat-header {
+    padding-left: 16px !important;
+}

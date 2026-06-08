@@ -9,6 +9,7 @@ Chỉ làm 3 việc:
 import os
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 from config import STATIC_PATH
 from database import init_db
@@ -30,6 +31,15 @@ app = FastAPI(
     version     = "2.0.0",
 )
 
+# Cấu hình CORS cho phép tất cả các nguồn truy cập (hoặc cấu hình domain cụ thể)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # ---------------------------------------------------------------------------
 # Include Routers
 # ---------------------------------------------------------------------------
@@ -48,4 +58,5 @@ app.mount("/", StaticFiles(directory=STATIC_PATH, html=True), name="static")
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8004)
+    port = int(os.environ.get("PORT", 8004))
+    uvicorn.run(app, host="0.0.0.0", port=port)
